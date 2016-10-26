@@ -1,5 +1,5 @@
 # Pu's Website. Welcome!
-## This website is used for learning Algorithm Problems. 
+## This website is used for learning Algorithm and Data Structures. 
 These problems are interesting and helpful. So I decided to attach my own thinkings for every problem. All problems are solved by using java.<br>
 
 ###First Part:
