@@ -8,14 +8,15 @@ body {
 #top {
         text-align: center;
         line-height: 1px;
-        height:550px;
+        height:600px;
         align-content: center;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: lighter;
+        padding-top: 50px;
 }
 
 #p-pu {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-stretch: condensed;
         color: white;
         font-weight: lighter;
@@ -24,11 +25,31 @@ body {
 }
 
 #p-chen {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-stretch: condensed;
         color: white;
         font-weight: lighter;
         text-align: center;
         font-size: 600%
 }
+
+#navbar {
+        overflow: hidden;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        width: 100%;
+}
+
+#nav-list a {
+        font-family: 'Poppins', sans-serif;
+        float: right;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 16px 20px;
+        text-decoration: none;
+        font-size: 17px;
+}
+
 
