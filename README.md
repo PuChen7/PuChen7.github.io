@@ -1,3 +1,2 @@
-# Pu's Website. (Under Construction)
-## This is my personal website.
+# This is my personal website.
 <br>
