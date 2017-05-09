@@ -10,10 +10,10 @@
     </head>
     
     <body>
-        <div id="navbar">
+        <nav id="navbar">
             <div id="nav-list">
                 <a href="#contacts">CONTACTS</a>
-                <a href="#about">ABOUT</a>
+                <a href="#about-section">ABOUT</a>
                 <a href="#projects">PROJECTS</a>
                 <a href="index.html">HOME</a>
             </div>
@@ -21,11 +21,34 @@
             <div id="name-brand">
                 <a href="index.html">PU CHEN | Welcome</a>
             </div>
-        </div>
+            <script src="js/jquery-1.10.2.min.js"></script>
+            <script>
+        $(document).ready(function(){
+    $('a[href*=#]').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+        && location.hostname == this.hostname) {
+        var $target = $(this.hash);
+        $target = $target.length && $target
+        || $('[name=' + this.hash.slice(1) +']');
+        if ($target.length) {
+            var targetOffset = $target.offset().top;
+            $('html,body')
+            .animate({scrollTop: targetOffset}, 1000);
+        return false;
+        }
+        }
+    });
+    });
+    </script>
+        </nav>
         
        <div id="top">
            <p>PU</p>
            <p>CHEN</p>
+       </div>
+
+       <div id="about-section">
+           <p>ABOUT</p>
        </div>
     </body>
 </html>
