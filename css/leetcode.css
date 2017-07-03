@@ -1,0 +1,53 @@
+/*Copyright 2017 by Pu Chen. All rights reserved.*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+/* navigation bar */
+body {
+  margin: 0;
+}
+nav {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+    height: 50px;
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom:1px solid black;
+}
+
+#menuList {
+  list-style-type: none;
+  padding-right: 80px;
+}
+
+#menuList li {
+    float: right;
+}
+
+#menuList li a {
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    padding-right: 30px;
+    text-decoration: none;
+}
+
+#menuList li a:hover {
+  color: #040CFC;
+}
+
+.tag {
+  float: left;
+  display: inline;
+  text-align: left;
+  padding-top: 14px;
+  margin-left: 60px;
+}
+/**********************/
+
