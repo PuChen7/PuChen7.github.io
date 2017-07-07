@@ -43,6 +43,7 @@ ul {
 }
 
 .tag {
+  text-decoration: none;
   float: left;
   display: inline;
   text-align: left;
