@@ -39,7 +39,7 @@ nav {
 }
 
 #menuList li a:hover {
-  color: #040CFC;
+  color: #737CA1;
 }
 
 .tag {
@@ -68,7 +68,7 @@ nav {
   font-size: 15px;
   background-color: white;
     color: black;
-    border: 2px solid green;
+    border: 2px solid #000000;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -76,7 +76,7 @@ nav {
 }
 
 .archivesContent a:hover, a:active {
-    background-color: green;
+    background-color: #2B3856;
     color: white;
 }
 
