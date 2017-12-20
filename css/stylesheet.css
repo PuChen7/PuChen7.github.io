@@ -128,3 +128,18 @@ ul {
   text-decoration: none;
   font-size: 30px;
 }
+
+/* footer for every page */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* about me page -> main Body */
+.aboutmeBody{
+  text-align: center;
+  font-size: 20px;
+  padding-top: 150px;
+}
