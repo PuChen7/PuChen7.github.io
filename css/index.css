@@ -61,9 +61,11 @@ ul {
 /**********************/
 /* Main Body */
 .mainBody {
+  font-family: HelveticaNeue-Light;
   text-align: center;
   font-size: 30px;
   padding-top: 50px;
+  padding-bottom: 30px;
   /*padding-left: 310px;*/
    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -120,4 +122,23 @@ ul {
 #profile{
   padding-top: 150px;
   text-align: center;
+}
+
+#code-link{
+  padding-top: 30px;
+  border: none;
+  background: none;
+  text-align: center;
+  
+}
+
+#code-link a{
+  text-decoration: none;
+  color: black;
+  font-family: HelveticaNeue-Light;
+  font-size: 40px;
+}
+
+#code-link img{
+  height: 30px;
 }
