@@ -6,8 +6,10 @@ body {
   margin: 0;
 }
 nav {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 18px;
+    font-family: HelveticaNeue-Light;
+    color:#727272;
+    font-weight: lighter;
+    font-size: 19px;
     height: 50px;
     display: inline;
     list-style-type: none;
@@ -18,7 +20,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    border-bottom:1px solid black;
+    border-bottom:1px solid #E9E9E9;
 }
 
 ul {
@@ -31,15 +33,20 @@ ul {
 }
 
  li a {
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    padding-right: 30px;
-    text-decoration: none;
+   font-family: HelveticaNeue-Light;
+   color:#6F6F6F;
+   font-weight: lighter;
+   text-align: center;
+   padding: 14px 16px;
+   padding-right: 15px;
+   padding-right: 15px;
+   text-decoration: none;
 }
 
  li a:hover {
-  color: #040CFC;
+  color: black;
+  border-bottom:1px solid black;
+  padding-bottom: 8px;
 }
 
 .tag {
@@ -47,15 +54,16 @@ ul {
   float: left;
   display: inline;
   text-align: left;
-  padding-top: 14px;
+  padding-top: 20px;
   margin-left: 60px;
 }
+
 /**********************/
 /* Main Body */
 .mainBody {
   text-align: center;
   font-size: 30px;
-  padding-top: 300px;
+  padding-top: 50px;
   /*padding-left: 310px;*/
    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -94,41 +102,6 @@ ul {
 }
 /************************/
 
-/* Archives Page */
-.archivesContent {
-  text-align: center;
-  padding-top: 120px;
-}
-
-.archivesContent ul {
-  display: inline-block;
-  list-style-type: none;
-}
-
-.archivesContent a:link, a:visited {
-  font-family: 'Quicksand', sans-serif;
-  text-decoration: none;
-  font-size: 15px;
-  background-color: white;
-    color: black;
-    border: 2px solid green;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.archivesContent a:hover, a:active {
-    background-color: green;
-    color: white;
-}
-
-.archivesContent p {
-  font-family: 'Quicksand', sans-serif;
-  text-decoration: none;
-  font-size: 30px;
-}
-
 /* footer for every page */
 .footer {
   position: fixed;
@@ -142,4 +115,9 @@ ul {
   text-align: center;
   font-size: 20px;
   padding-top: 150px;
+}
+
+#profile{
+  padding-top: 150px;
+  text-align: center;
 }
