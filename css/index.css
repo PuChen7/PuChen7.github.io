@@ -138,6 +138,7 @@ ul {
 }
 
 #sec-two{
+  text-align: center;
   height: 100%;
 }
 
@@ -147,7 +148,44 @@ section{
 
 #sec-two-title{
   padding-top: 90px;
+  padding-bottom: 60px;
   text-align: center;
-  font-family: HelveticaNeue-light;
+  font-family: HelveticaNeue;
   font-size: 45px;
+}
+
+#block {
+  text-align: center;
+  font-family: HelveticaNeue;
+  font-size: 25px;
+  display: inline-block;
+  width: 300px;
+  height: 75px;
+  margin: 10px;
+}
+
+#block a{
+  color: #3C588F;
+  text-decoration: none;
+  border-bottom: 1px solid #D4D4D4;
+}
+
+#block a:hover{
+  color: black;
+}
+
+#p{
+  font-size:16px;
+  color: black;
+}
+
+.repo-lan-tag{
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    display: inline-flex;
+    font-size: .65rem;
+    height: 2em;
+    padding-left: .75em;
+    padding-right: .75em;
 }
