@@ -5,7 +5,7 @@
         <title>Pu Chen | About Me</title>
 
         <!-- CSS links -->
-        <link rel="stylesheet" href="css/archives.css" />
+        <link rel="stylesheet" href="../css/archives.css" />
     </head>
 
     <body>
@@ -14,16 +14,73 @@
             <div class="tag">Java OOP Concepts | Pu Chen</div>
             <ul>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="archives.html">Archives</a></li>
-                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
                 <li><a href="https://github.com/PuChen7">Projects</a></li>
-                <li><a class="active" href="index.html">Home</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
             </ul>
        </nav>
 
        <!-- Main body of the front page -->
-       <div class="">
-           
+       <div class="blog-content">
+           <h>What is Object, Instance, Class?</h>
+           <p>
+               Objects share two characteristics: 
+               They all have <text>state</text> and <text>behavior</text>.
+               <br>Instance is an instantiation of a class. 
+               <br>And a Class is a blueprint, 
+               template that defines object's state and behavior.
+               A class encapsulates the static attributes (data) and dynamic behaviors (operations that operate on the data) in a box.
+               <br>Class >> Object >> Instance
+            </p>
+            <br>
+
+            <h>Creating Instances of a Class</h>
+            <p>
+                1. Declare an instance identifier (instance name) of a particular class.<br>
+                2. Construct the instance (i.e., allocate storage for the instance and initialize the instance) using the "new" operator.
+            </p>
+            <br>
+
+            <h>Constructors</h>
+            <p>
+                A constructor is used to construct and initialize all the member variables.
+                The name of the constructor method is the same as the class name.<br>
+                Constructor has no return type. It implicitly returns void.<br> 
+                Constructor can only be invoked via the "new" operator.<br> 
+                Constructors are not inherited.<br>
+                Java compiler creates a default constructor(no-arg constructor) if your class doesn't have any. 
+                Default constructor is used to provide the default values to the object like 0, null etc. depending on the type.<br>
+                <br>
+                Constructor overloading: Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. 
+                They are arranged in a way that each constructor performs a different task. 
+                They are differentiated by the compiler by the number of parameters in the list and their types.
+                <br>Example:<br>
+                <xmp>
+                    class Student5{  
+                        int id;  
+                        String name;  
+                        int age;  
+                        Student5(int i,String n){  
+                            id = i;  
+                            name = n;  
+                        }  
+                        Student5(int i,String n,int a){  
+                            id = i;  
+                            name = n;  
+                            age=a;  
+                        }  
+                        void display(){System.out.println(id+" "+name+" "+age);}  
+                        
+                        public static void main(String args[]){  
+                            Student5 s1 = new Student5(111,"Karan");  
+                            Student5 s2 = new Student5(222,"Aryan",25);  
+                            s1.display();  
+                            s2.display();  
+                        }  
+                    }
+                </xmp>
+            </p>
        </div>
 
     </body>
