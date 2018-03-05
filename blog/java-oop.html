@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pu Chen | About Me</title>
+        <title>Pu Chen | Blog</title>
 
         <!-- CSS links -->
         <link rel="stylesheet" href="../css/archives.css" />
@@ -81,10 +81,27 @@
                 </pre>
             </p>
             <br>
-            
-            <h>static</h>
-            <p>
 
+            <h>static variable</h>
+            <p>
+                It makes the program memory efficient. static property is shared to all objects. 
+            </p>
+            <br>
+
+            <h>static method</h>
+            <p>
+                A static method belongs to the class rather than object of a class.<br>
+                A static method can be invoked without the need for creating an instance of a class.<br>
+                static method can access static data member and can change the value of it.<br>
+                <br>
+                <u>Restrictions:</u><br>
+                The static method can not use non static data member or call non-static method directly.<br>
+                this and super cannot be used in static context.<br>
+                <br>
+                <u>When to use static method?</u><br>
+                If you are writing utility classes and they are not supposed to be changed.<br>
+                If the method is not using any instance variable.<br>
+                If any operation is not dependent on instance creation.
             </p>
        </div>
 
