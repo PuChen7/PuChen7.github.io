@@ -96,13 +96,15 @@
                 </p>
             <br>
 
-            <h>static variable</h>
+            <h>static keyword</h>
+
+            <b>static variable</b>
                 <p>
                     It makes the program memory efficient. static property is shared to all objects. 
                 </p>
             <br>
 
-            <h>static method</h>
+            <b>static method</b>
                 <p>
                     A static method belongs to the class rather than object of a class.<br>
                     A static method can be invoked without the need for creating an instance of a class.<br>
@@ -115,7 +117,46 @@
                     <u>When to use static method?</u><br>
                     If you are writing utility classes and they are not supposed to be changed.<br>
                     If the method is not using any instance variable.<br>
-                    If any operation is not dependent on instance creation.
+                    If any operation is not dependent on instance creation.<br>
+                    <br>
+                    <b>overload static method?</b><br>
+                    Yes.<br>
+                    <pre class="prettyprint">
+                        public class Test {
+                            public static void foo() {
+                                System.out.println("Test.foo() called ");
+                            }
+                            public static void foo(int a) { 
+                                System.out.println("Test.foo(int) called ");
+                            }
+                            public static void main(String args[])
+                            { 
+                                Test.foo();
+                                Test.foo(10);
+                            }
+                        }
+                        /********************/
+                        Output:
+                        Test.foo() called 
+                        Test.foo(int) called 
+                    </pre>
+                    <b>overload methods that differ only by static keyword?</b><br>
+                    No.<br>
+                    <pre class="prettyprint">
+                        public class Test {
+                            public static void foo() {
+                                System.out.println("Test.foo() called ");
+                            }
+                            public void foo() { // Compiler Error: cannot redefine foo()
+                                System.out.println("Test.foo(int) called ");
+                            }
+                            public static void main(String args[]) { 
+                                Test.foo();
+                            }
+                        }
+                        /********************/
+                        Output: Compiler Error, cannot redefine foo()
+                    </pre>
                 </p>
             <br>
 
@@ -216,6 +257,17 @@
                     <b>Two types:</b>
                     - static binding (early binding)<br>
                     - dynamic binding (late binding)<br>
+                    <br>
+                    <b>static binding</b><br>
+                    When type of the object is determined at <text>compiled time</text>(by the compiler), it is known as static binding.<br>
+                    If there is any <text>private</text>, <text>final</text> or <text>static</text> method in a class, there is static binding.<br>
+                    <br>
+                    <b>why <text>private</text>, <text>final</text> or <text>static</text> method is static binding?</b><br>
+                    Compiler knows that all such methods cannot be overridden and will always be accessed by object of local class. 
+                    Hence compiler doesn’t have any difficulty to determine object of class (local class for sure).<br>
+                    <br>
+                    <b>dynamic binding</b><br>
+                    Dynamic binding is a binding which happens during run time.<br>
                 </p>
        </div>
 
