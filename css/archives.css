@@ -58,6 +58,7 @@ ul {
   text-align: left;
   padding-top: 20px;
   margin-left: 60px;
+  color: #727272;
 }
 
 /**********************/
@@ -94,8 +95,9 @@ h1{
 }
 
 h{
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
+  color: #3C588F;
 }
 
 text{

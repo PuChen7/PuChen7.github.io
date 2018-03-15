@@ -25,84 +25,131 @@
        <!-- Main body of the front page -->
        <div class="blog-content">
            <h>What is Object, Instance, Class?</h>
-           <p>
-               Objects share two characteristics: 
-               They all have <text>state</text> and <text>behavior</text>.
-               <br>Instance is an instantiation of a class. 
-               <br>And a Class is a blueprint, 
-               template that defines object's state and behavior.
-               A class encapsulates the static attributes (data) and dynamic behaviors (operations that operate on the data) in a box.
-               <br>Class >> Object >> Instance
-            </p>
+            <p>
+                Objects share two characteristics: 
+                They all have <text>state</text> and <text>behavior</text>.
+                <br>Instance is an instantiation of a class. 
+                <br>And a Class is a blueprint, 
+                template that defines object's state and behavior.
+                A class encapsulates the static attributes (data) and dynamic behaviors (operations that operate on the data) in a box.
+                <br>Class >> Object >> Instance
+                </p>
             <br>
 
             <h>Creating Instances of a Class</h>
-            <p>
-                1. Declare an instance identifier (instance name) of a particular class.<br>
-                2. Construct the instance (i.e., allocate storage for the instance and initialize the instance) using the "new" operator.
-            </p>
+                <p>
+                    1. Declare an instance identifier (instance name) of a particular class.<br>
+                    2. Construct the instance (i.e., allocate storage for the instance and initialize the instance) using the "new" operator.
+                </p>
             <br>
 
             <h>Constructors</h>
-            <p>
-                A constructor is used to construct and initialize all the member variables.
-                The name of the constructor method is the same as the class name.<br>
-                Constructor has no return type. It implicitly returns void.<br> 
-                Constructor can only be invoked via the "new" operator.<br> 
-                Constructors are not inherited.<br>
-                Java compiler creates a default constructor(no-arg constructor) if your class doesn't have any. 
-                Default constructor is used to provide the default values to the object like 0, null etc. depending on the type.<br>
-                <br>
-                Constructor overloading: Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. 
-                They are arranged in a way that each constructor performs a different task. 
-                They are differentiated by the compiler by the number of parameters in the list and their types.
-                <br>Example:<br>
-                <pre class="prettyprint">
-                    class Student5{  
-                        int id;  
-                        String name;  
-                        int age;  
-                        Student5(int i,String n){  
-                            id = i;  
-                            name = n;  
-                        }  
-                        Student5(int i,String n,int a){  
-                            id = i;  
-                            name = n;  
-                            age=a;  
-                        }  
-                        void display(){System.out.println(id+" "+name+" "+age);}  
-                        
-                        public static void main(String args[]){  
-                            Student5 s1 = new Student5(111,"Karan");  
-                            Student5 s2 = new Student5(222,"Aryan",25);
-                        }  
-                    }
-                </pre>
-            </p>
+                <p>
+                    A constructor is used to construct and initialize all the member variables.
+                    The name of the constructor method is the same as the class name.<br>
+                    Constructor has no return type. It implicitly returns void.<br> 
+                    Constructor can only be invoked via the "new" operator.<br> 
+                    Constructors are not inherited.<br>
+                    Java compiler creates a default constructor(no-arg constructor) if your class doesn't have any. 
+                    Default constructor is used to provide the default values to the object like 0, null etc. depending on the type.<br>
+                    <br>
+                    Constructor overloading: Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. 
+                    They are arranged in a way that each constructor performs a different task. 
+                    They are differentiated by the compiler by the number of parameters in the list and their types.
+                    <br>Example:<br>
+                    <pre class="prettyprint">
+                        class Student5{  
+                            int id;  
+                            String name;  
+                            int age;  
+                            Student5(int i,String n){  
+                                id = i;  
+                                name = n;  
+                            }  
+                            Student5(int i,String n,int a){  
+                                id = i;  
+                                name = n;  
+                                age=a;  
+                            }  
+                            void display(){System.out.println(id+" "+name+" "+age);}  
+                            
+                            public static void main(String args[]){  
+                                Student5 s1 = new Student5(111,"Karan");  
+                                Student5 s2 = new Student5(222,"Aryan",25);
+                            }  
+                        }
+                    </pre>
+                </p>
             <br>
 
             <h>static variable</h>
-            <p>
-                It makes the program memory efficient. static property is shared to all objects. 
-            </p>
+                <p>
+                    It makes the program memory efficient. static property is shared to all objects. 
+                </p>
             <br>
 
             <h>static method</h>
-            <p>
-                A static method belongs to the class rather than object of a class.<br>
-                A static method can be invoked without the need for creating an instance of a class.<br>
-                static method can access static data member and can change the value of it.<br>
-                <br>
-                <u>Restrictions:</u><br>
-                The static method can not use non static data member or call non-static method directly.<br>
-                this and super cannot be used in static context.<br>
-                <br>
-                <u>When to use static method?</u><br>
-                If you are writing utility classes and they are not supposed to be changed.<br>
-                If the method is not using any instance variable.<br>
-                If any operation is not dependent on instance creation.
-            </p>
+                <p>
+                    A static method belongs to the class rather than object of a class.<br>
+                    A static method can be invoked without the need for creating an instance of a class.<br>
+                    static method can access static data member and can change the value of it.<br>
+                    <br>
+                    <u>Restrictions:</u><br>
+                    The static method can not use non static data member or call non-static method directly.<br>
+                    this and super cannot be used in static context.<br>
+                    <br>
+                    <u>When to use static method?</u><br>
+                    If you are writing utility classes and they are not supposed to be changed.<br>
+                    If the method is not using any instance variable.<br>
+                    If any operation is not dependent on instance creation.
+                </p>
+            <br>
+
+            <h><text>this</text> keyword</h>
+                <p>
+                    1. this can be used to refer current class instance variable. <br>
+                    2. this can be used to invoke current class method (implicitly) <br>
+                    2. this() can be used to invoke current class constructor. <br>
+                    3. this can be passed as an argument in the method call. <br>
+                    4. this can be passed as argument in the constructor call. <br>
+                    5. this can be used to return the current class instance from the method.
+                </p>
+            <br>
+            
+            <h>Inheritance</h>
+                <p>
+                    <b>Definition</b>: one object acquires all the properties and behaviors of parent object. 
+                    It is a <text>IS-A</text> relationship, also known as <text>parent-child</text> relationship.
+                    The subclass can add its own fields and methods in addition to the superclass fields and methods.<br>
+                    <br>
+                    <b>Why use Inheritance?</b><br>
+                    <text>1. Code reusability</text><br>
+                    create new classes that are built upon existing classes.<br>
+                    reuse methods and fields of parent class, and add more functions.<br>
+                    <text>2. For Method Overriding</text><br><br>
+
+                    <b>Types of Inheritance:</b><br>
+                    1. single<br>
+                    2. multilevel<br>
+                    3. hierarchical<br>
+                    
+                    <br>
+
+                    <b>Important facts about inheritance</b><br>
+                    1. <text>Default superclass</text>: Except Object class, which has no superclass, every class has one and only one direct superclass (single inheritance). In the absence of any other explicit superclass, every class is implicitly a subclass of Object class.<br>
+                    2. <text>Superclass can only be one</text>: A superclass can have any number of subclasses. But a subclass can have only one superclass. This is because Java does not support multiple inheritance with classes. Although with interfaces, multiple inheritance is supported by java.<br>
+                    3. <text>Inheriting Constructors</text>: A subclass inherits all the members (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.<br>
+                    4. <text>Private member inheritance</text>: A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods(like getters and setters) for accessing its private fields, these can also be used by the subclass.<br>
+                </p>
+            <br>
+
+            <h>Method overloading</h><br>
+                <p>
+                    <b>Definition:</b> same name with different parameters.<br>
+                    <b>why use?</b> Increases the readability of the program.<br>
+                    <b>Overload main method?</b> Yes. But JVM calls main() method which receives string array as arguments only. 
+
+                </p>
        </div>
 
     </body>
