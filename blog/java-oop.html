@@ -23,19 +23,21 @@
        </nav>
 
        <div id="guide">
-           <h>Topics covered in this blog</h><br>
-           <text>* What is Object, Instance, Class?</text><br>
-           <text>* Creating Instances of a Class</text><br>
-           <text>* Constructors</text><br>
-           <text>* static keyword</text><br>
-           <text>* this keyword</text><br>
-           <text>* final keyword</text><br>
-           <text>* Inheritance</text><br>
-           <text>* Method Overloading/Overriding</text><br>
-           <text>* Polymorphism</text><br>
-           <text>* Static Binding and Dynamic Binding</text><br>
-           <text>* Abstract Class</text><br>
-           <text>* Interface</text><br>
+            <h>Topics covered in this blog</h>
+           <ul>
+                <li><text>What is Object, Instance, Class?</text></li>
+                <li><text>Creating Instances of a Class</text></li>
+                <li><text>Constructors</text></li>
+                <li><text>static keyword</text></li>
+                <li><text>this keyword</text></li>
+                <li><text>final keyword</text></li>
+                <li><text>Inheritance</text></li>
+                <li><text>Method Overloading/Overriding</text></li>
+                <li><text>Polymorphism</text></li>
+                <li><text>Static Binding and Dynamic Binding</text></li>
+                <li><text>Abstract Class</text></li>
+                <li><text>Interface</text></li>
+            </ul>
        </div>
 
        <!-- Main body of the front page -->
@@ -164,14 +166,15 @@
 
             <h><text>this</text> keyword</h>
                 <p>
-                    1. this can be used to refer current class instance variable. <br>
-                    2. this can be used to invoke current class method (implicitly) <br>
-                    2. this() can be used to invoke current class constructor. <br>
-                    3. this can be passed as an argument in the method call. <br>
-                    4. this can be passed as argument in the constructor call. <br>
-                    5. this can be used to return the current class instance from the method.
+                    <ul>
+                        <li>this can be used to refer current class instance variable.</li>
+                        <li>this can be used to invoke current class method (implicitly)</li>
+                        <li>this() can be used to invoke current class constructor.</li>
+                        <li>this can be passed as an argument in the method call.</li>
+                        <li>this can be passed as argument in the constructor call.</li>
+                        <li>this can be used to return the current class instance from the method.</li>
+                    </ul>
                 </p>
-            <br>
             
             <h>Inheritance</h>
                 <p>
@@ -192,11 +195,13 @@
                     
                     <br>
 
-                    <b>Important facts about inheritance</b><br>
-                    1. <text>Default superclass</text>: Except Object class, which has no superclass, every class has one and only one direct superclass (single inheritance). In the absence of any other explicit superclass, every class is implicitly a subclass of Object class.<br>
-                    2. <text>Superclass can only be one</text>: A superclass can have any number of subclasses. But a subclass can have only one superclass. This is because Java does not support multiple inheritance with classes. Although with interfaces, multiple inheritance is supported by java.<br>
-                    3. <text>Inheriting Constructors</text>: A subclass inherits all the members (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.<br>
-                    4. <text>Private member inheritance</text>: A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods(like getters and setters) for accessing its private fields, these can also be used by the subclass.<br>
+                    <b>Important facts about inheritance</b>
+                    <ul>
+                        <li><text>Default superclass</text>: Except Object class, which has no superclass, every class has one and only one direct superclass (single inheritance). In the absence of any other explicit superclass, every class is implicitly a subclass of Object class.</li>
+                        <li><text>Superclass can only be one</text>: A superclass can have any number of subclasses. But a subclass can have only one superclass. This is because Java does not support multiple inheritance with classes. Although with interfaces, multiple inheritance is supported by java.</li>
+                        <li><text>Inheriting Constructors</text>: A subclass inherits all the members (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.</li>
+                        <li><text>Private member inheritance</text>: A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods(like getters and setters) for accessing its private fields, these can also be used by the subclass.</li>
+                    </ul>
                 </p>
             <br>
 
@@ -274,30 +279,34 @@
             <br>
 
             <h>Abstract Class</h>
-                <p>
-                    <b>Abstraction</b>: a process of hiding the implementation details and showing only functionality to the user.<br>
-                    Two ways to achieve abstraction: <text>abstract class</text>, and <text>interface</text>.<br>
-                    An abstract class can not be instantiated, which means you are not allowed to create an object of it.<br>
-                    Abstract class doesn't provide 100% abstraction because it allows concrete methods. However, Interface provides 100% abstraction.<br>
-                    <br>
-                    <b>Rules:</b><br>
-                    - A class derived from the abstract class must implement <text>ALL</text> those methods that are declared as abstract in the parent class.<br>
-                    - If a child does not implement all the abstract methods of abstract parent class, then the child class must need to be declared abstract as well.<br>
-                    - How to use abstract class: extend it and build. Can't create object since there are no implementation.<br> 
+                <p> 
+                    <ul>
+                        <li><b>Abstraction</b>: a process of hiding the implementation details and showing only functionality to the user.</li>
+                        <li>Two ways to achieve abstraction: <text>abstract class</text>, and <text>interface</text>.</li>
+                        <li>An abstract class can not be instantiated, which means you are not allowed to create an object of it.</li>
+                        <li>Abstract class doesn't provide 100% abstraction because it allows concrete methods. However, Interface provides 100% abstraction.</li>
+                    </ul>
+                    <b>Rules:</b>
+                    <ul>
+                        <li>A class derived from the abstract class must implement <text>ALL</text> those methods that are declared as abstract in the parent class.</li>
+                        <li>If a child does not implement all the abstract methods of abstract parent class, then the child class must need to be declared abstract as well.</li>
+                        <li>How to use abstract class: extend it and build. Can't create object since there are no implementation.</li>
+                    </ul>
                 </p>
-            <br>
             <h>Interface</h>
                 <p>
                     <b>Why use interface?</b><br>
                     1. To achieve full abstraction.<br>
                     2. multiple inheritance.<br>
                     <br>
-                    <b>Rules:</b><br>
-                    - Interface can only have <text>abstract</text> methods. Don't have to put "interface" on the header.<br>
-                    - Can extends multiple interfaces.<br>
-                    - If interface1 extends interface2, class implements interface1, then class must implements all methods in both interface1 and interface2.<br>
-                    - Cannot create object of interfaces.<br>
-                    - Variables declared in interface are <text>public, static, final</text> by default.<br>
+                    <b>Rules:</b>
+                    <ul>
+                        <li>Interface can only have <text>abstract</text> methods. Don't have to put "interface" on the header.</li>
+                        <li>Can extends multiple interfaces.</li>
+                        <li>If interface1 extends interface2, class implements interface1, then class must implements all methods in both interface1 and interface2.</li>
+                        <li>Cannot create object of interfaces.</li>
+                        <li>Variables declared in interface are <text>public, static, final</text> by default.</li>
+                    </ul>
                 </p>
             
        </div>

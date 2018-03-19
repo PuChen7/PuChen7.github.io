@@ -35,25 +35,30 @@
             <h>ArrayList Class</h><br>
             It inherits AbstractList class and implements List interface.<br>
             <br>
-            <text>Important:</text><br>
-            * Can contain duplicate elements.<br>
-            * Java ArrayList class maintains insertion order.<br>
-            * Allows random access because array works at the index basis.<br>
-            * Manipulation is slow because a lot of shifting needs to be occurred if any element is removed from the array list.<br>
+            <text>Important:</text>
+            <ul>
+                <li>Can contain duplicate elements.</li>
+                <li>Java ArrayList class maintains insertion order.</li>
+                <li>Allows random access because array works at the index basis.</li>
+                <li>Manipulation is slow because a lot of shifting needs to be occurred if any element is removed from the array list.</li>
+            </ul>
             <br>
             <img src="arraylist.jpg" style="width:70%;height:70%;"><br>
             <br>
             <b>Traversing the ArrayList</b><br>
             Two ways:<br>
-            - Iterator interface<br>
-            - for-each loop<br>
+            <ul>
+                <li>Iterator interface</li>
+                <li>for-each loop</li>
+            </ul>
+            
             <pre class="prettyprint">
                 //Traversing list through Iterator  
                 Iterator itr=list.iterator();  
                 while(itr.hasNext()){  
                     System.out.println(itr.next());  
                 }  
-                
+
                 /******************************/
 
                 // traversing using for-each loop
@@ -61,7 +66,12 @@
                     System.out.println(obj);  
                 }  
             </pre>
-
+            <br>
+            <b>Complexity</b>
+            <ul>
+                <li>add: O(1)</li>
+                <li>remove: O(n)</li>
+            </ul>
 
        </div>
 
