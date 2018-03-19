@@ -34,6 +34,8 @@
            <text>* Method Overloading/Overriding</text><br>
            <text>* Polymorphism</text><br>
            <text>* Static Binding and Dynamic Binding</text><br>
+           <text>* Abstract Class</text><br>
+           <text>* Interface</text><br>
        </div>
 
        <!-- Main body of the front page -->
@@ -274,15 +276,14 @@
             <h>Abstract Class</h>
                 <p>
                     <b>Abstraction</b>: a process of hiding the implementation details and showing only functionality to the user.<br>
-                    Two ways to achieve abstraction: abstract class, and interface.<br>
+                    Two ways to achieve abstraction: <text>abstract class</text>, and <text>interface</text>.<br>
                     An abstract class can not be instantiated, which means you are not allowed to create an object of it.<br>
                     Abstract class doesn't provide 100% abstraction because it allows concrete methods. However, Interface provides 100% abstraction.<br>
-
+                    <br>
                     <b>Rules:</b><br>
-                    - A class derived from the abstract class must implement all those methods that are declared as abstract in the parent class.<br>
+                    - A class derived from the abstract class must implement <text>ALL</text> those methods that are declared as abstract in the parent class.<br>
                     - If a child does not implement all the abstract methods of abstract parent class, then the child class must need to be declared abstract as well.<br>
                     - How to use abstract class: extend it and build. Can't create object since there are no implementation.<br> 
-                    *Note: The class extends the abstract method must implements ALL abstract methods.
                 </p>
             <br>
             <h>Interface</h>
@@ -292,7 +293,11 @@
                     2. multiple inheritance.<br>
                     <br>
                     <b>Rules:</b><br>
-                    - 
+                    - Interface can only have <text>abstract</text> methods. Don't have to put "interface" on the header.<br>
+                    - Can extends multiple interfaces.<br>
+                    - If interface1 extends interface2, class implements interface1, then class must implements all methods in both interface1 and interface2.<br>
+                    - Cannot create object of interfaces.<br>
+                    - Variables declared in interface are <text>public, static, final</text> by default.<br>
                 </p>
             
        </div>
