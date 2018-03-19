@@ -67,12 +67,48 @@
                 }  
             </pre>
             <br>
-            <b>Complexity</b>
+            <b>Complexity of <text>ArrayList</text></b>
             <ul>
                 <li>add: O(1)</li>
                 <li>remove: O(n)</li>
+                <li>get: O(1)</li>
+                <li>contains: O(n)</li>
             </ul>
 
+            <h>Linked List</h><br>
+            It inherits the AbstractList class and implements List and Deque interfaces.<br>
+            <br>
+            <b>Important:</b>
+            <ul>
+                <li>can contain duplicate elements.</li>
+                <li>maintains insertion order.</li>
+                <li>non synchronized.</li>
+            </ul>
+            <img src="linked-list.jpg" style="width:70%;height:70%;"><br>
+            <br>
+            <b>Complexity of <text>Linked List</text></b>
+            <ul>
+                <li>add: O(1)</li>
+                <li>remove: O(1)</li>
+                <li>get: O(n)</li>
+                <li>contains: O(n)</li>
+            </ul>
+            <h>ArrayList vs. Linked List</h><br>
+            <b><text>Search</text></b><br>
+            ArrayList is faster with O(1) using get(int index)<br>
+            Linked List has O(n)<br>
+            <br>
+            <b><text>Deletion</text></b><br>
+            ArrayList has O(n) for worst case since it needs shifting if delete first element.<br>
+            Linked List has O(1)<br>
+            <br>
+            <b><text>Insertion</text></b><br>
+            ArrayList has O(n) because of shifting.<br>
+            Linked List has O(1).<br>
+            <br>
+            <b>When to use <text>Linked List</text> and <text>ArrayList</text>:</b><br>
+            * Frequent deletion and addition: <text>Linked List</text><br>
+            * Frequent search operations: <text>ArrayList</text><br>
        </div>
 
     </body>
