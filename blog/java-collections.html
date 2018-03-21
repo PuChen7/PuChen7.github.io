@@ -190,6 +190,65 @@
                 <li>add: O(logn)</li>
                 <li>contains: O(logn)</li>
             </ul>
+
+            <h>Queue</h><br>
+            <ul>
+                <li>FIFO: enqueue ->| ||||| |-> dequeue</li>
+            </ul>
+            <b>Complexity</b><br>
+            <ul>
+                <li>enqueue(), dequeue(), isFull(), isEmpty(), front() and rear() is O(1)</li>
+            </ul>
+
+            <h>Priority Queue</h><br>
+            The PriorityQueue class provides the facility of using queue. 
+            But it does not orders the elements in FIFO manner. It inherits AbstractQueue class.<br>
+            An unbounded priority queue based on a priority heap.<br>
+            <br>
+            <b>Important</b>
+            <ul>
+                <li>The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.</li>
+                <li>A priority queue does not permit null elements.</li>
+                <li>not synchronized</li>
+            </ul>
+
+            <b>Methods and Complexity</b><br>
+            <ul>
+                <li><text>boolean offer():</text> same as add() - O(logn)</li>
+                <li><text>poll():</text> remove head of queue and return - O(logn)</li>
+                <li><text>peek():</text> O(1)</li>
+            </ul>
+
+            <h>Deque Interface</h><br>
+            Deque is a Queue in which you can add and remove elements from both sides.<br>
+            It has two implementations: <text>LinkedList</text> and <text>ArrayDeque</text>.<br>
+            <br>
+            <b>Methods of Deque Interface</b>
+            <ul>
+                <li>void addFirst()</li>
+                <li>void addLast()</li>
+                <li>boolean contains()</li>
+                <li>getFirst()</li>
+                <li>getLast()</li>
+                <li>pollFirst()</li>
+                <li>pollLast()</li>
+                <li>peekFirst()</li>
+                <li>peekLast()</li>
+                <li>size()</li>
+            </ul>
+
+            <h>ArrayDeque Class</h><br>
+            The ArrayDeque class provides the facility of using deque and resizable-array. 
+            It inherits AbstractCollection class and implements the Deque interface.<br>
+            <br>
+            <b>Important</b>
+            <ul>
+                <li>can add or remove elements from both sides</li>
+                <li>Null elements are not allowed in the ArrayDeque</li>
+                <li>Not thread safe</li>
+                <li>no capacity restrictions</li>
+                <li>ArrayDeque is faster than LinkedList and Stack</li>
+            </ul>
        </div>
 
     </body>
