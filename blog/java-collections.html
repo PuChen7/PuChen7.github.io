@@ -135,6 +135,7 @@
                 <li>HashSet contains unique elements only</li>
                 <li>null elements are allowed in HashSet</li>
                 <li>Underlying data structure for HashSet is HashTable</li>
+                <li>There's no order of HashSet</li>
             </ul>
             <b>Difference between <text>Set</text> and <text>List</text></b>
             <ul>
@@ -145,9 +146,50 @@
             <code>
                 HashSet<String> set = new HashSet<String>();<br>
                 set.add("Hash");  
-            </code>
-            
-            
+            </code><br>
+            <br>
+            <b>Traverse through HashSet</b><br>
+            use next()<br>
+            <br>
+            <b>Complexity</b>
+            <ul>
+                <li>add: O(1)</li>
+                <li>contains: O(1)</li>
+            </ul>
+
+            <h>LinkedHashSet</h><br>
+            LinkedHashSet class is a Hash table and Linked list implementation of the set interface. It inherits HashSet class and implements Set interface.<br>
+            <br>
+            <b>Important</b>
+            <ul>
+                <li>Contains unique elements only like HashSet</li>
+                <li>Provides all optional set operations, and permits null elements</li>
+                <li>Maintains insertion order</li>
+            </ul>
+
+            <b>Complexity</b>
+            <ul>
+                <li>add: O(1)</li>
+                <li>contains: O(1)</li>
+            </ul>
+
+            <h>TreeSet</h><br>
+            TreeSet class implements the Set interface that uses a tree for storage. 
+            It inherits AbstractSet class and implements NavigableSet interface. 
+            The objects of TreeSet class are stored in ascending order.
+            <br><br>
+            <b>Important</b>
+            <ul>
+                <li>Contains unique elements only like HashSet</li>
+                <li>Access and retrieval times are quiet fast</li>
+                <li>Maintains ascending order</li>
+            </ul>
+
+            <b>Complexity</b>
+            <ul>
+                <li>add: O(logn)</li>
+                <li>contains: O(logn)</li>
+            </ul>
        </div>
 
     </body>
