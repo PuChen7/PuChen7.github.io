@@ -112,3 +112,11 @@ text{
   text-align: left;
 }
 
+.blog-content ul a{
+  color: #3C588F;
+  text-decoration: none;
+}
+
+b{
+  font-size: 20px;
+}
