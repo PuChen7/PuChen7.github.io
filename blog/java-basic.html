@@ -45,10 +45,28 @@
 
             <h>Access Modifiers</h>
             <ul>
-                <li>Visible to the package, the default. No modifiers are needed.</li>
-                <li>Visible to the class only (private).</li>
-                <li>Visible to the world (public).</li>
-                <li>Visible to the package and all subclasses (protected).</li>
+                <li> <text><b>default</b></text>: Visible to the package. No modifiers are needed.
+                    <ul>
+                        <li>A variable or method declared without any access control modifier is available to any other class in the same package.</li>
+                    </ul>
+                </li>
+                <li><text><b>private</b></text>: Visible to the class only
+                    <ul>
+                        <li>Methods, variables, and constructors that are declared <text>private</text> can only be accessed within the declared class itself.</li>
+                        <li><text>Private access modifier</text> is the most restrictive access level. Class and interfaces cannot be private.</li>
+                    </ul>
+                </li>
+                <li><text><b>public</b></text>: Visible to the world
+                    <ul>
+                        <li>A class, method, constructor, interface, etc. declared <text>public</text> can be accessed from any other class.</li>
+                    </ul>
+                </li>
+                <li><text><b>protected</b></text>: Visible to the package and all subclasses
+                    <ul>
+                        <li>Variables, methods, and constructors, which are declared <text>protected</text> in a superclass can be accessed only by the subclasses in other package or any class within the package of the protected members' class.</li>
+                        <li>The protected access modifier cannot be applied to class and interfaces. </li>
+                    </ul>
+                </li>
             </ul>
        </div>
 
