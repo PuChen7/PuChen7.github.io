@@ -1,0 +1,72 @@
+<!-- This is the About Me page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pu Chen | Blog</title>
+
+        <!-- CSS links -->
+        <link rel="stylesheet" href="../css/archives.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">Java Unit Test with JUnit | Pu Chen</div>
+            <ul>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
+            </ul>
+       </nav>
+
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+            <h>Unit Test With JUnit</h>
+            <br><br>
+            <h>Introduction</h>
+            <p>
+                Unit testing involves breaking your program into pieces, and subjecting each piece to a series of tests.
+                <br><br>
+                <b><text>JUnit</text></b><br>
+                <a href="https://junit.org/junit4/">Offical Website</a><br>
+                JUnit is a unit testing framework for the Java programming language.<br>
+                To use JUnit, import following packages:<br>
+                <code>import org.junit.Test;</code><br>
+                <code>import static org.junit.Assert.*;</code>
+                <br>
+                <b>Sample Test program:</b><br>
+                <pre class="prettyprint">
+                    import org.junit.Test;
+                    import static org.junit.Assert.*;
+                    public class MyUnitTest {
+                        @Test
+                        public void testConcatenate() {
+                            MyUnit myUnit = new MyUnit();
+                            String result = myUnit.concatenate("one", "two");
+                            assertEquals("onetwo", result);
+                        }
+                    }
+                </pre>
+                The method annotated with <code>@Test</code> will be executed by unit test runner.
+                <br>
+            </p>
+
+            <p>
+                <h>Assert Methods</h><br>
+                <b>List of methods:</b>
+                <ul>
+                    <li>assertArrayEquals()</li>
+                    <li>assertEquals()</li>
+                    <li>assertTrue() + assertFalse()</li>
+                    <li>assertNull() + assertNotNull()</li>
+                    <li>assertSame() + assertNotSame()</li>
+                    <li>assertThat()</li>
+                </ul>
+            </p>
+       </div>
+
+    </body>
+</html>
