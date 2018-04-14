@@ -1,0 +1,48 @@
+<!-- This is the About Me page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pu Chen | Blog</title>
+
+        <!-- CSS links -->
+        <link rel="stylesheet" href="../css/archives.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">Java Interview Questions | Pu Chen</div>
+            <ul>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
+            </ul>
+       </nav>
+       <br>
+
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+            <h>Q: What is the difference between "==" and "equals()" in comparing Java String objects?</h><br>
+            <p>
+                "==" is <text>shallow comparison</text>. It's actually comparing the two object references to see if they point to the same object.<br>
+                "equals()" is <text>deep comparison</text>. It compares the actual string values<br>
+
+                <img src="../img/shallow.jpg" style="width:30%;height:30%;"><br>
+                <img src="../img/deep.jpg" style="width:30%;height:30%;"><br>
+
+                <br>
+
+                <h>Q: What is pass-by-value in Java?</h><br>
+                If the passed in argument was a <text><b>primitive value</b></text> like int, char, etc, the passed in primitive value is copied to the method parameter.<br>
+                Modifying the copied parameter will <text><b>not</b></text> modify the original primitive value.<br>
+                if the passed in argument was an <text><b>object reference</b></text>, the passed in reference is copied to the method parameter. The copied reference will still be pointing to the same object. <br>
+                So, if you modify the object value through the copied reference, the original object <text><b>will be modified</b></text>.<br>
+            </p>
+
+       </div>
+
+    </body>
+</html>
