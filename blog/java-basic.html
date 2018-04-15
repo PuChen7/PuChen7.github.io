@@ -40,6 +40,7 @@
                     <ul>
                         <li><text>Finally block</text> in java can be used to put "cleanup" code such as closing a file, closing connection etc.</li>
                         <li>Java <text>finally block</text> is always executed whether exception is handled or not.</li>
+                        <li>This is used to close non-memory resources like file handles, sockets, database connections</li>
                     </ul>
                 </li>
 
@@ -77,6 +78,38 @@
             </ul>
 
             <img src="../img/access-modifiers.jpg" style="width:60%;height:60%;"><br>
+
+            <br>
+
+            <h>Wrapper Class</h><br>
+            Wrapper classes are used to convert any data type into an object.
+            <ul>
+                <li><text><b>Autoboxing</b></text>: Automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing.</li>
+                <li><text><b>Unboxing</b></text>: Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. </li>
+            </ul>
+
+            <br>
+
+            <h>Generics</h><br>
+            Generics was added in Java 5 to provide compile-time type checking 
+            and removing risk of ClassCastException that was common while working with collection classes.<br>
+            It provides compile time type-safety and ensures that you only insert correct Type in collection and avoids ClassCastException in runtime.<br>
+            <b>Example:</b><br>
+            <pre class="prettyprint">
+                List<String> list = new ArrayList<String>();
+                list.add("1");
+                list.add("string");
+                String str = list.get(1);
+                System.out.println(str);    // output: string
+            </pre>
+            <b>Generics for loop:</b><br>
+            <pre class="prettyprint">
+                List<String> strings = new ArrayList<String>();
+                //... add String instances to the strings list...      
+                for(String aString : strings){
+                    System.out.println(aString);
+                }
+            </pre>
        </div>
 
     </body>
