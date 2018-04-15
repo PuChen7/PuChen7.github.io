@@ -35,11 +35,30 @@
 
                 <br>
 
-                <h>Q: What is pass-by-value in Java?</h><br>
+                <h>Q: What is pass-by-value and pass-by-reference in Java?</h><br>
                 If the passed in argument was a <text><b>primitive value</b></text> like int, char, etc, the passed in primitive value is copied to the method parameter.<br>
                 Modifying the copied parameter will <text><b>not</b></text> modify the original primitive value.<br>
                 if the passed in argument was an <text><b>object reference</b></text>, the passed in reference is copied to the method parameter. The copied reference will still be pointing to the same object. <br>
                 So, if you modify the object value through the copied reference, the original object <text><b>will be modified</b></text>.<br>
+
+                <br>
+
+                <h>Q: Why String class has been made immutable in Java?</h><br>
+                <text><b>For performance & thread-safety.</b></text><br>
+                <ul>
+                    <li>If string is mutable, changing the string with one reference will lead to the wrong value for the other references.</li>
+                    <li><text><b>Synchronization and concurrency</b></text>: making String immutable automatically makes them thread safe thereby solving the synchronization issues.</li>
+                </ul>
+
+                
+                <h>Q: What is the main difference between String, StringBuffer, and StringBuilder?</h><br>
+                <ul>
+                    <li><text><b>String</b></text> is immutable in Java, and this immutability gives the benefits like security and performance discussed above.</li>
+                    <li><text><b>StringBuffer</b></text> is mutable, hence you can add strings to it, and when required, convert to an immutable String with the toString( ) method.</li>
+                    <li><text><b>StringBuilder</b></text> is very similar to a StringBuffer, but StringBuffer has one disadvantage in terms of performance as all of its public methods are synchronized for thread-safety. 
+                        StringBuilder in Java is a copy of StringBuffer but without synchronization to be used in local variables which are inherently thread-safe. 
+                        So, if thread-safety is required, use StringBuffer, otherwise use StringBuilder.</li>
+                </ul>
             </p>
 
        </div>
