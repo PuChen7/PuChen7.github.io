@@ -176,8 +176,55 @@
             <br>
 
             <h>Exceptions</h><br>
-            
-
+            Exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.<br>
+            <br><img src="../img/exception.jpg" style="width:40%;height:40%;"><br>
+            <br>
+            <b>Error vs Exception</b><br>
+            <text>Error</text>: An Error indicates serious problem that a reasonable application should not try to catch.<br>
+            <text>Exception</text>: Exception indicates conditions that a reasonable application might try to catch.<br>
+            <br>
+            <b>How JVM handles exceptions</b><br>
+            <ul>
+                <li>If an exception has occurred, the method creates an Object known as <text><b>Exception Object</b></text> and hands it off to the JVM. (<text>throwing an Exception</text>)</li>
+                <li>The exception object contains <text>name</text> and <text>description</text> of the exception, and <text>current state</text> of the program where exception has occurred.</li>
+                <li>There might be the list of the methods that had been called to get to the method where exception was occurred. This ordered list of the methods is called <text><b>Call Stack</b></text>.</li>
+                <li>The run-time system searches the call stack to find <text><b>Exception Handler.</b></text>
+                    <ul>
+                        <li>If found: run-time system pass exception to the handler</li>
+                        <li>If not found: run-time system handover the Exception Object to <text>default exception handler</text>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <b>Types of Exception</b><br>
+            <ul>
+                <li>Checked Exception
+                    <ul>
+                        <li>All exceptions other than <text><b>Runtime Exceptions</b></text> are known as Checked exceptions as the 
+                            compiler checks them during compilation to see whether the programmer has handled them or not.
+                            e.g.IOException, SQLException etc.</li>
+                    </ul>
+                </li>
+                <li>Unchecked Exception
+                    <ul>
+                        <li>Runtime Exceptions are also known as Unchecked Exceptions. e.g. ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException etc.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <b>Throw vs Throws</b>
+            <ul>
+                <li>Throw
+                    <ul>
+                        <li>The throw keyword in Java is used to explicitly throw an exception from a method or any block of code. We can throw either checked or unchecked exception.</li>
+                    </ul>
+                </li>
+                <li>Throws
+                    <ul>
+                        <li>throws keyword is required only for <text><b>checked exception</b></text> and usage of throws keyword for unchecked exception is meaningless.</li>
+                    </ul>
+                </li>
+            </ul>
        </div>
 
     </body>
