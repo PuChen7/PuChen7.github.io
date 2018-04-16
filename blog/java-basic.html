@@ -110,6 +110,43 @@
                     System.out.println(aString);
                 }
             </pre>
+
+            <br>
+
+            <h>Comparable</h><br>
+
+            <h>Garbage Collector</h><br>
+
+            <h>Thread</h><br>
+
+            <h>Java Compile-time Vs Run-time</h><br>
+            <text><b>Compile-time</b></text> is the instance where the code you entered is converted to executable while <text><b>Run-time</b></text> is the instance where the executable is running.<br>
+            <b>What could happen at <text>Compile time</text></b>?<br>
+            <ul>
+                <li>Syntax Errors</li>
+                <li>Typechecking errors</li>
+            </ul>
+
+            <b>What could happen at <text>Run time</text></b>?<br>
+            <ul>
+                <li>Running out of memory</li>
+                <li>Division by zero</li>
+                <li>Trying to open a file that isn't there</li>
+            </ul>
+
+            <br><img src="../img/run-compile-time.jpg" style="width:40%;height:40%;"><br>
+
+            <h>How Java works</h><br>
+            <ul>
+                <li>Source file(.java)</li>
+                <li>run source file through <text><b>Java Compiler (javac)</b></text>. It checks for error and syntax in the source file. 
+                    It transforms source file into <text><b>bytecode</b></text>. The bytecode is platform independent, 
+                    because it's targeted at Java Virtual Machine.</li>
+                <li>Compiler creates <text><b>classfile</b></text>. This classfile is coded into bytecode. The classfile is <text><b>portable</b></text> and can be ran on any platform.</li>
+                <li><text><b>Java Virtual Machine</b></text> runs the classfile. It is a specification that provides <text><b>run-time environment</b></text> in which java bytecode can be executed.</li>
+                <li><text><b>Java Runtime Environment (JRE) </b></text>refers to a runtime environment in which java bytecode can be executed. It implements the JVM (Java Virtual Machine) and provides all the class libraries and other support files that JVM uses at runtime.</li>
+                <li><text><b>Java Development Kit (JDK) </b></text>a software development environment used for developing Java applications and applets. It includes the Java Runtime Environment (JRE), an interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (javadoc) and other tools needed in Java development.</li>
+            </ul>
        </div>
 
     </body>

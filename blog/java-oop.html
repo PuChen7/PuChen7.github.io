@@ -230,7 +230,33 @@
                     <b>Facts:</b><br>
                     1. <text>Override static method?</text> No <br>
                     2. <text>Override main method?</text> No, main() is static <br>
+
+                    <br>
+
+                    <b>Overriding the static method</b><br>
+                    If you try to override a static method,  it is known as <text><b>hiding or shadowing</b></text>.<br>
+
+                    <pre class="prettyprint">
+                        public class PolymorphismTest {
+                            public static void main(String[] args) {
+                                Base b = new DerivedOne();
+                                b.f(); // prints "Base"
+                            
+                                b = new Base();
+                                b.f();  //prints "Base"
+                            }
+                        }
+
+                        /*
+                            Why prints "Base" in both cases? Because, it only looks at what type variable "b" is? 
+                            In both cases of type Base. It does not care what type of object is stored. 
+                            Same for variables, and is known as "Shadowing"
+                        */
+                    </pre>
+
+                    
                 </p>
+
             <br>
 
             <h><text>final</text> keyword</h>
@@ -253,7 +279,11 @@
                     <text>Method overloading</text> is compile time polymorphism because which method to be called is determined at the run time based on the parameters.<br><br>
                     
                     <b>Run time/dynamic polymorphism</b><br>
-                    Method overriding: overridden method is resolved at <text>run time</text>.
+                    Method overriding: overridden method is resolved at <text>run time</text>.<br>
+
+                    <b>Composition over inheritance</b><br>
+                    <text><b>Composition:</b></text> Has-A relationship. Containing instances of other classes that implement the desired functionality.<br>
+                    classes should achieve polymorphic behavior and code reuse by their composition rather than inheritance from a base or parent class.<br>
                 </p>
             <br>
 
