@@ -1,0 +1,83 @@
+<!-- This is the About Me page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pu Chen | Blog</title>
+
+        <!-- CSS links -->
+        <link rel="stylesheet" href="../css/archives.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">JavaScript | Pu Chen</div>
+            <ul>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
+            </ul>
+       </nav>
+
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+        <p>
+            <h>Variables</h>
+            <ul>
+                <li>declare <text>global</text> variable inside the function: using window object(e.g. <code>window.value = 10;</code>)</li>
+            </ul>
+
+            <h>Data Types</h><br>
+            <b>Primitive data types</b>
+            <ul>
+                <li>Numbers: All numbers in JavaScript are represented as <text>floating-point</text> values.</li>
+                <li>String</li>
+                <li>Boolean</li>
+            </ul>
+
+            <b>Difference between <code><text>null</text></code> and <text><code>undefined</code></text></b><br>
+            <text><b><code>undefined</code></b></text>: means a variable has been declared but has not yet been assigned a value. <text>undefined is a <b>type</b></text><br>
+            <text><b><code>null</code></b></text>:  an assignment value (no value) <text>null is an <b>object</b></text>.<br>
+
+            <br>
+
+            <b>var, let, const</b><br>
+            <ul>
+                <li>var: <text>not block scoped</text>. It has scope in functions. <code>let</code> and <code>const</code> are bound to the block.</li>
+                <li>let: valid within {}. block scoped. always use <code>code</code> to avoid scope errors.</li>
+                <li>const: cannot be reassigned</li>
+            </ul>
+
+            <br>
+
+            <b>Difference between == and ===</b><br>
+            <ul>
+                <li>identity operator ===: no type conversion so types must be the same to be True</li>
+                <li>equality operator ==: do type conversion first before comparison</li>
+            </ul>
+
+            <br>
+
+            <b>strict mode</b><br>
+            Strict mode is a way to introduce better error-checking into your code. When you use strict mode, you cannot, for example, use implicitly declared variables<br>
+            Declare: <code>"use strict";</code><br>
+            Benefits: easier debug, prevent accidentally global etc.<br>
+
+            <br>
+
+            <b><code>NaN</code></b><br>
+            The NaN property represents a value that is "not a number".<br>
+            <code>NaN</code> has type <code>Number</code>.<br>
+
+            <br>
+
+            <b>Closure</b><br>
+            
+        </p>
+       </div>
+
+    </body>
+</html>

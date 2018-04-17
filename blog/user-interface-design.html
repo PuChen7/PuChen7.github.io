@@ -80,10 +80,39 @@
 
                 <h>CSS Concepts</h><br>
                 <b>Cascading Order</b><br>
+                What style will be used when there is more than one style specified for an HTML element?<br>
+                Generally, all the styles will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:<br>
+                <ul>
+                    <li>Inline style (inside an HTML element)</li>
+                    <li>External and internal style sheets (in the head section)</li>
+                    <li>Browser default</li>
+                </ul>
+                So, an <text>inline style</text> (inside a specific HTML element) has the highest priority, which means that it will override a style defined inside the <text>&lt;head&gt;</text> tag, or in an external style sheet, or a browser default value.<br>
                 
+                <br>
+
+                <b>CSS Selectors</b><br>
+                <text>Selectors</text> are what allows you to target specific HTML elements and apply style to them.<br>
+                <br>
+                <b>ID vs Class</b><br>
+                <ul>
+                    <li>ID is <text>unique</text>
+                        <ul>
+                            <li>Each element can have only one ID</li>
+                            <li>Each page can have only one element with that ID</li>
+                            <li>Use a class when you want to consistently style <text>multiple</text> elements throughout the page/site.</li>
+                        </ul>
+                    </li>
+                    <li>Classes are <text>NOT unique</text>
+                        <ul>
+                            <li>You can use the same class on multiple elements.</li>
+                            <li>You can use multiple classes on the same element.</li>
+                            <li>Use the ID when you have a <text>single</text> element on the page that will take the style.</li>
+                        </ul>
+                    </li>
+                    <li>Tag selector</li>
+                </ul>
             </p>
-
-
        </div>
 
     </body>
