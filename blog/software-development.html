@@ -1,0 +1,194 @@
+<!-- This is the About Me page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pu Chen | Blog</title>
+
+        <!-- CSS links -->
+        <link rel="stylesheet" href="../css/archives.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">Software Development | Pu Chen</div>
+            <ul>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
+            </ul>
+       </nav>
+
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+            <br>
+            <h>Software Process</h><br>
+            <ul>
+                <li>Software specification(requirement and planning): 
+                    <ul>
+                        <li>most important and fundamental stage.</li>
+                        <li>risks, quality, feasibility</li>
+                    </ul>
+                </li>
+                <li>Design and implementation
+                    <ul>
+                        <li>follow the guidelines of company and customers</li>
+                    </ul>
+                </li>
+                <li>Testing
+                    <ul>
+                        <li>report and fix defects until reach the requirement</li>
+                    </ul>
+                </li>
+                <li>Deployment in the market and maintenance
+                    <ul>
+                        <li>release the product</li>
+                        <li>gather feedbacks and look for enhancement according to the market changes</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <b>SDLC Models (Software Development Process Models)</b><br>
+            <ul>
+                <li>Waterfall Model
+                    <ul>
+                        <li>process divided into seperate phases, each phase is the input for the next phase.</li>
+                        <li>requirement -> system design -> implementation -> integration and testing -> deployment -> maintenance</li>
+                        <li>each phase will start only after the previous phase is done</li>
+                        <li>Advantages: 
+                            <ul>
+                                <li>simple and easy to understand, use, and manage</li>
+                                <li>good for smaller project</li>
+                                <li>process are well documented</li>
+                            </ul>
+                        </li>
+                        <li>Disadvantages:
+                            <ul>
+                                <li>No working software is produced until late stage</li>
+                                <li>High risk</li>
+                                <li>Not good for complex project</li>
+                                <li>difficult to measure the process</li>
+                                <li>Difficult to accommodate changes</li>
+                            </ul>
+                        </li>
+                        <li>When to use?
+                            <ul>
+                                <li>simpler project with less changes</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Iterative Model
+                    <ul>
+                        <li>Develop an initial version and get user feedback, then enhance the current version until an acceptable version has been developed.</li>
+                        <li>Advantages:
+                            <ul>
+                                <li>Working version at early stage</li>
+                                <li>Parallel development</li>
+                                <li>Easy to change</li>
+                                <li>Risk analysis is easier</li>
+                            </ul>
+                        </li>
+                        <li>Disadvantages:
+                            <ul>
+                                <li>Need more management</li>
+                                <li>No suitable for changing requirements</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Spiral Model
+                    <ul>
+                        <li>Focus in <text>risk analysis</text></li>
+                        <li>Used for medium and high risk project</li>
+                        <li>Customers not sure for their requests</li>
+                        <li>Need a lot of changes</li>
+                        <li>Advantages:
+                            <ul>
+                                <li>Changing requirements can be added</li>
+                                <li>Allow extensive use of prototypes</li>
+                                <li>Users see the system early</li>
+                            </ul>
+                        </li>
+                        <li>Disadvantages:
+                            <ul>
+                                <li>Management is complex</li>
+                                <li>Process is complex</li>
+                                <li>Not suitable for small and low risk project</li>
+                                <li>End of the process might be not known at early stage</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Agile
+                    <ul>
+                        <li>Combination of iterative and incremental process models.</li>
+                        <li>Break product into small incremental builds. These builds are provided in iterations. Each iteration lasts for about 1-3 weeks.</li>
+                        <li>Principles
+                            <ul>
+                                <li>Individuals and interactions</li>
+                                <li>Working software: demo is the best tool for communication with customers</li>
+                                <li>Responding to change: focus on quick reponses and continuous development</li>
+                            </ul>
+                        </li>
+                        <li>Advantages:
+                            <ul>
+                                <li>Very limited planning is required to get started with the project. It helps the company in saving time and money.</li>
+                                <li>promotes teamwork</li>
+                                <li>suitable for both fixed and changing requirements</li>
+                                <li>easy to manage</li>
+                                <li>Concurrent development</li>
+                            </ul>
+                        </li>
+                        <li>Advantages:
+                            <ul>
+                                <li>Not suitable for complex dependencies</li>
+                                <li>more risk of sustainability, maintainability and extensibility</li>
+                                <li>heavily depends on communication with customers</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Agile vs Traditional SDLC Models
+                    <ul>
+                        <li>Agile is based on the <mark>Adaptive software development methods</mark>, the traditional SDLC models are based on <mark>predictive approach.</mark></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+
+            <h>Agile and Scrum</h><br>
+            <text><b>Scrum</b></text> is a (incremental and iterative) framework that is used to implement Agile development.<br>
+            <b>Key Concepts:</b>
+            <ul>
+                <li>In Scrum, every event has a maximum duration.</li>
+                <li>Sprint - the heart of Scrum
+                    <ul>
+                        <li>Sprint is a time-box of potentially releasible product increment is created. A new Sprint starts immediately after the previous one.</li>
+                        <li>Sprint consists of:
+                            <ul>
+                                <li><mark>Sprint planning</mark>: the work to be performed</li>
+                                <li><mark>Daily Scrum meeting</mark>: meeting for team to synchronize the activities and create new plan</li>
+                                <li><mark>Sprint review</mark>: held at the end of Sprint to inspect the quality of the product</li>
+                                <li><mark>Sprint retrospective</mark>: occur after the Sprint review and before the next Sprint planning. plan improvements</li>
+                            </ul>
+                        </li>
+                        <li>Scrum team
+                            <ul>
+                                <li>Scrum Master: making process run smoothly and organize</li>
+                                <li>Product Owner: maximize the value of the product and the work of the team. Key role to manage the backlog.</li>
+                                <li>Team: self-organizing and cross-functional. Consists of designer, developer, testers etc. </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+       </div>
+
+    </body>
+</html>
