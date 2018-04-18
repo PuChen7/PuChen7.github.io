@@ -24,6 +24,15 @@
 
        <!-- Main body of the front page -->
        <div class="blog-content">
+           <br>
+            <h>JSP Life Cycle</h><br>
+            <ul>
+                <li><b>Compilation</b>: JSP engine compiles the page if it is needed. (parsing the JSP -> turn JSP to Servlet -> compile servlet)</li>
+                <li><b>Initialization</b>: when container loads JSP it invokes the <code>jspInit()</code>. Used for database connections, file opening etc.</li>
+                <li><b>Execution</b>: This phase has all interactions with requests until the JSP is destroyed.</li>
+                <li><b>Cleanup</b>: destroy JSP using <code>jspDestroy()</code>. Method can be overridden for customized purpose (database closing etc.).</li>
+            </ul>
+
             <h>Session and Cookie</h><br>
             <b>Session</b> is an <text>implicit object</text> of type HttpSession. The main usage of it to gain access to all the user’s data till the user session is active.
             The information of users are stored in <text><em>session variables</em></text>. Each session variable consumes memory on the application server, 
