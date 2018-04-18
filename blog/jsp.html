@@ -1,0 +1,46 @@
+<!-- This is the About Me page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pu Chen | Blog</title>
+
+        <!-- CSS links -->
+        <link rel="stylesheet" href="../css/archives.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">Java Server Pages | Pu Chen</div>
+            <ul>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
+            </ul>
+       </nav>
+
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+            <h>Session and Cookie</h><br>
+            <b>Session</b> is an <text>implicit object</text> of type HttpSession. The main usage of it to gain access to all the user’s data till the user session is active.
+            The information of users are stored in <text><em>session variables</em></text>. Each session variable consumes memory on the application server, 
+            so creating unnecessary session variables can hurt performance.<br>
+            Session ends when visitor terminates browser, time out, administrator stops the server.<br>
+            <br>
+            <b>Cookie</b> is a string that your application writes to the visitor's browser.
+            A cookie stores information about visitors that lasts between sessions. 
+            The visitor's browser writes this string to a special cookie file on the visitor's disk. 
+            When that visitor returns to your website, the visitor's browser sends a copy of the cookie back to the web server that set it. 
+            Once a cookie has been created, it is available as a variable to elements on a page<br>
+            <br>
+            <b>In general</b><br>
+            The server will store the pertinent information in the session object, and create a session ID which it will send back to the client in a cookie. 
+            When the client sends back the cookie, the server can simply look up the session object using the ID.<br>
+
+       </div>
+
+    </body>
+</html>
