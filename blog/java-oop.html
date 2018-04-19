@@ -300,7 +300,7 @@
                     <br>
                     <b>why <text>private</text>, <text>final</text> or <text>static</text> method is static binding?</b><br>
                     Compiler knows that all such methods cannot be overridden and will always be accessed by object of local class. 
-                    Hence compiler doesn’t have any difficulty to determine object of class (local class for sure).<br>
+                    Hence compiler doesn't have any difficulty to determine object of class (local class for sure).<br>
                     <br>
                     <b>dynamic binding</b><br>
                     Dynamic binding is a binding which happens during run time.<br>
@@ -338,6 +338,18 @@
                         <li>Variables declared in interface are <text>public, static, final</text> by default.</li>
                     </ul>
                 </p>
+            <br>
+            <h>When to use Abstract Class vs Interface</h><br>
+            Abstract classes should primarily be used for objects that are closely related (some classes might need to share lines of code, 
+            so you can put these code to abstract class). Need to provide default implementation.<br>
+            Interfaces are better at providing common functionality for unrelated classes. If need multiple inheritance.<br>
+
+            <br>
+            <h>Association > Aggregation > Composition</h><br>
+            <b>Association</b>: relation between classes objects. Can be one-to-one, one-to-many, many-to-one, many-to-many. 
+            Composition and Aggregation are two forms of Association.<br>
+            <b>Aggregation</b>: Has-A relationship. Unidirectional. Entities are <mark>independent</mark>.<br>
+            <b>Composition</b>: restricted form of Aggregation. part-of relationship. Entities are <mark>dependent</mark>.<br>
             
        </div>
 

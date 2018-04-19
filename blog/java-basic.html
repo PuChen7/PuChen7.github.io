@@ -133,11 +133,19 @@
             Used to order the objects of user-defined class. It provides <text><b>multiple</b></text> sorting sequence <br>
             Method: <text><b>compare(Object obj1,Object obj2)</b></text> and <text><b>equals(Object element)</b></text>.
 
-            <br><br>
+            <br>
+
+            <b>When to use Comparable and Comparator</b><br>
+            <mark>Comparable</mark>: when sorting based on natural order.<br>
+            <mark>Comparator</mark>: when sorting based on special ordering.<br>
+
+            <br>
 
             <h>Garbage Collector</h><br>
+            <br>
 
             <h>Thread</h><br>
+            <br>
 
             <h>Java Compile-time Vs Run-time</h><br>
             <text><b>Compile-time</b></text> is the instance where the code you entered is converted to executable while <text><b>Run-time</b></text> is the instance where the executable is running.<br><br>
@@ -167,9 +175,15 @@
                 <li><text><b>Java Runtime Environment (JRE) </b></text>refers to a runtime environment in which java bytecode can be executed. It implements the JVM (Java Virtual Machine) and provides all the class libraries and other support files that JVM uses at runtime.</li>
                 <li><text><b>Java Development Kit (JDK) </b></text>a software development environment used for developing Java applications and applets. It includes the Java Runtime Environment (JRE), an interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (javadoc) and other tools needed in Java development.</li>
             </ul>
+            <b>In general</b><br>
+            <ul>
+                <li><mark><b>JDK</b></mark>: provides the environment to Develop and execute(run ) the Java program. (Development tools, and JRE)</li>
+                <li><mark><b>JRE</b></mark>: provides environment to only run(not develop) the java program. JRE is only used by them who only wants to run the Java Programs i.e. end users of your system. Contains built in libraries, JVM, toolkits.</li>
+                <li><mark><b>JVM</b></mark>: contained in both JRE and JDK. JVM is responsible for executing the java program line by line. Also known as <mark>interpreter</mark></li>
+            </ul>
 
             <h>What is class loader</h><br>
-            The Java Classloader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine.<br>
+            The Java Class loader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine.<br>
 
             <h>Lambda Expression</h><br>
 
@@ -180,8 +194,8 @@
             <br><img src="../img/exception.jpg" style="width:40%;height:40%;"><br>
             <br>
             <b>Error vs Exception</b><br>
-            <text>Error</text>: An Error indicates serious problem that a reasonable application should not try to catch.<br>
-            <text>Exception</text>: Exception indicates conditions that a reasonable application might try to catch.<br>
+            <text>Error</text>: An Error indicates serious problem that a application should not try to catch. It is impossible to recovery.<br>
+            <text>Exception</text>: Exception indicates conditions that a application might try to catch.<br>
             <br>
             <b>How JVM handles exceptions</b><br>
             <ul>
