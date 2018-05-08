@@ -82,21 +82,70 @@
                 <b>Binary Search</b><br>
                 <text>Algorithm and Code:</text><br>
                 <pre class="prettyprint">
-                    public static int binarySearch(int[] arr, int target){
-                        int left = 0;
-                        int right = arr.length - 1;
-                
-                
-                        while (right >= left){
-                            int mid = left + (right - left)/2;
-                            if (arr[mid] == target) return mid;
-                            else if (arr[mid] > target){
-                                right = mid - 1;
-                            }else{
-                                left = mid + 1;
+                    public class playground{
+                        public static class BinaryTree{
+                            int val;
+                            BinaryTree left;
+                            BinaryTree right;
+                            public BinaryTree(int val){
+                                this.val = val;
                             }
                         }
-                        return -1;
+                        public static void main(String args[]){
+                            int[] nums = {1,2,3,4,5,6,7,8,9,19};
+                    
+                            int target = 7;
+                           
+                            int res = binarySearch(target, nums);
+                            System.out.println(res);
+                    
+                            BinaryTree node1 = new BinaryTree(1);
+                            BinaryTree node2 = new BinaryTree(2);
+                            BinaryTree node3 = new BinaryTree(3);
+                            BinaryTree node4 = new BinaryTree(4);
+                            BinaryTree node5 = new BinaryTree(5);
+                    
+                            node3.left = node2;
+                            node2.left = node1;
+                            node3.right = node5;
+                            node5.left = node4;
+                    
+                            binaryTraversePreorder(node3);
+                        }
+                    
+                        // Binary Search
+                        public static int binarySearch(int target, int[] nums){
+                            int lo = 0;
+                            int hi = nums.length - 1;
+                             while (lo <= hi){
+                                int mid = lo + (hi-lo)/2;   // prevent overflow
+                    
+                                if (nums[mid] == target)
+                                    return nums[mid];
+                                else if (nums[mid] > target)
+                                    hi = mid;
+                                else 
+                                    lo = mid + 1;
+                            }
+                            return -1;
+                        }
+                    
+                        /*
+                        Traversal:
+                        Inorder: left, root, right
+                        Preorder: root, left, right
+                        Postorder: left, right, root
+                        */
+                        // preorder traversal
+                        public static void binaryTraversePreorder(BinaryTree root){
+                            if (root == null)
+                                return;
+                            System.out.println(root.val);   // preorder
+                            binaryTraverse(root.left); 
+                            // System.out.println(root.val); // inorder
+                            binaryTraverse(root.right);
+                            // System.out.println(root.val); // postorder
+                        }
                     }
                 </pre>
 
