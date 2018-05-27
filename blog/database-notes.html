@@ -12,7 +12,7 @@
     <body>
         <!-- Navigation Bar -->
         <nav>
-            <div class="tag">Blockchain | Pu Chen</div>
+            <div class="tag">Database and MySQL | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
                 <li><a href="../archives.html">Archives</a></li>
@@ -24,7 +24,20 @@
 
        <!-- Main body of the front page -->
        <div class="blog-content">
-
+           <br>
+            <h>LIMIT and OFFSET</h><br>
+            <code><text>SELECT column 
+                FROM table
+                LIMIT 18 OFFSET 8;</text>
+            </code><br>
+            Start by reading the query from offset. First you offset by 8, which means you skip the first 8 results of the query. 
+            Then you limit by 18. Which means you consider records 9, 10, 11, 12, 13, 14, 15, 16....24, 25, 26 which are a total of 18 records.<br>
+            <br>
+            <h>IFNULL</h><br>
+            <code><text>
+                IFNULL(expression, alt_value);
+            </text></code><br>
+            If expression is NOT NULL, the IFNULL() function returns expression, otherwise, return alt_value.
        </div>
 
     </body>
