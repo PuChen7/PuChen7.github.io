@@ -37,7 +37,34 @@
             <code><text>
                 IFNULL(expression, alt_value);
             </text></code><br>
-            If expression is NOT NULL, the IFNULL() function returns expression, otherwise, return alt_value.
+            If expression is NOT NULL, the IFNULL() function returns expression, otherwise, return alt_value.<br>
+            <br>
+            <h>Basic Operations</h><br>
+            <b>Insert:</b><br>
+            <code><text>INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);</text></code><br>
+            <b>Update:</b><br>
+            <code><text>UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;</text></code><br>
+            <b>Delete:</b><br>
+            <code><text>DELETE FROM table_name WHERE condition;</text></code><br>
+            <br>
+            <h>NULL value</h><br>
+            A field with a NULL value is a field with no value.<br>
+            <b>How to test if a data is NULL?</b>: use <text><code>IS NULL</code></text><br>
+            <br>
+            <h>LIKE operator</h><br>
+            <ul>
+                <li><text>%</text>: The percent sign represents zero, one, or multiple characters</li>
+                <li><text>_</text>: The underscore represents a single character</li>
+            </ul>
+            <text><code>SELECT column1, column2, ... FROM table_name WHERE columnN LIKE pattern;</code></text><br>
+            <br>
+            <h>Aliases</h><br>
+            <b>Alias Column Syntax</b><br>
+            <code><text>SELECT column_name AS alias_name FROM table_name;</text></code><br>
+            <b>Alias Table Syntax</b><br>
+            <code><text>SELECT column_name(s) FROM table_name AS alias_name;</text></code><br>
+            <br>
+            
        </div>
 
     </body>
