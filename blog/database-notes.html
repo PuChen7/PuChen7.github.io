@@ -25,6 +25,12 @@
        <!-- Main body of the front page -->
        <div class="blog-content">
            <br>
+            <h>Database Normalization</h><br>
+            <ul>
+                <li><text>First Norm</text>: only singled value attribute</li>
+                <li><text>Second Norm</text>: No Partial Dependency (If proper subset of candidate key determines non-prime attribute, it is called partial dependency.)</li>
+                <li><text>Third Norm</text>: No Transitive Dependency.(When a non-prime attribute depends on other non-prime attributes rather than depending upon the prime attributes or primary key.)</li>
+            </ul>
             <h>LIMIT and OFFSET</h><br>
             <code><text>SELECT column 
                 FROM table
@@ -46,6 +52,8 @@
             <code><text>UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;</text></code><br>
             <b>Delete:</b><br>
             <code><text>DELETE FROM table_name WHERE condition;</text></code><br>
+            <b>Alter:</b><br>
+            <code><text>ALTER TABLE table_name ADD column_name datatype;</text></code><br>
             <br>
             <h>NULL value</h><br>
             A field with a NULL value is a field with no value.<br>
@@ -64,7 +72,7 @@
             <b>Alias Table Syntax</b><br>
             <code><text>SELECT column_name(s) FROM table_name AS alias_name;</text></code><br>
             <br>
-            
+
        </div>
 
     </body>
