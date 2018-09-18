@@ -1,0 +1,100 @@
+<!-- This is the About Me page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pu Chen | Blog</title>
+
+        <!-- CSS links -->
+        <link rel="stylesheet" href="../css/archives.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">Spring Framework | Pu Chen</div>
+            <ul>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
+            </ul>
+       </nav>
+
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+           <br>
+            <b><text>Spring Framework Concepts</text></b><br>
+
+            <br>
+
+            <h>Spring is modular.</h>
+            <ul>
+                <li>
+                    <ul>
+                        <img src="../img/spring_architecture.jpg" style="width:40%;height:40%;">
+                        <li><text>Core Container</text>
+                            <ul>
+                                <li>The <b>Core</b> module provides the fundamental parts of the framework, including the IoC and Dependency Injection features.</li>
+                                <li>The <b>Bean</b> module provides BeanFactory, which is a sophisticated implementation of the factory pattern.</li>
+                                <li>The <b>Context</b> module builds on the solid base provided by the Core and Beans modules and it is a medium to access any objects defined and configured. The ApplicationContext interface is the focal point of the Context module.</li>
+                                <li>The <b>SpEL</b> module provides a powerful expression language for querying and manipulating an object graph at runtime.</li>
+                            </ul>
+                        </li>
+                        <li><text>Data Access/Integration</text>
+                            <ul>
+                                <li>The <b>JDBC</b> module provides a JDBC-abstraction layer that removes the need for tedious JDBC related coding.</li>
+                                <li>The <b>ORM</b> module provides integration layers for popular object-relational mapping APIs, including JPA, JDO, Hibernate, and iBatis.</li>
+                                <li>The <b>OXM</b> module provides an abstraction layer that supports Object/XML mapping implementations for JAXB, Castor, XMLBeans, JiBX and XStream.</li>
+                            </ul>
+                        </li>
+                        <li><text>Web</text>
+                            <ul>
+                                <li>The <b>Web</b> module provides basic web-oriented integration features such as multipart file-upload functionality and the initialization of the IoC container using servlet listeners and a web-oriented application context.</li>
+                                <li>The <b>Web-MVC</b> module contains Spring's Model-View-Controller (MVC) implementation for web applications.</li>
+                                <li>The <b>Web-Socket</b> module provides support for WebSocket-based, two-way communication between the client and the server in web applications.</li>
+                                <li>The <b>Web-Portlet</b> module provides the MVC implementation to be used in a portlet environment and mirrors the functionality of Web-Servlet module.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+
+            <h>IoC (Inversion of Control) Container</h><br>
+
+            <ul>
+                <li>The Spring container is at the <text>core</text> of the Spring Framework.</li>
+                <li>The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction.</li>
+                <li>The objects controlled by IoC container are called <text>beans</text></li>
+                <li>Container or framework control the objects or some portion of the program</li>
+                <li><text>Two</text> types of <text>containers</text> in Spring:
+                    <ul>
+                        <li><text>Spring BeanFactory Container</text>
+                            <ul>
+                                <li>This is the simplest container providing the basic support for DI and is defined by the org.springframework.beans.factory.BeanFactory interface.</li>
+                            </ul>
+                        </li>
+                        <li><text>Spring ApplicationContext Container</text>
+                            <ul>
+                                <li>This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners.</li>
+                            </ul>
+                        </li>
+                        <li>The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+
+            <h>Bean</h><br>
+            <ul>
+                <li>The objects that form the backbone of your application and that are managed by the Spring IoC container are called <text>beans</text>. </li>
+                <li>These beans are created with the configuration metadata that you supply to the container.</li>
+            </ul>
+       </div>
+
+    </body>
+</html>
