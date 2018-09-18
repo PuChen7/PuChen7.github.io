@@ -88,7 +88,78 @@
 
             <br>
 
-            <h>How to compare two objects in JavaScript</h><br>
+            <h>Unit Test</h><br>
+            <b>Sinon &nbsp</b> <a href="https://sinonjs.org" style="text-decoration: none"> <text>[View Official Website]</text></a><br>
+            Standalone test spies, stubs and mocks for JavaScript.<br>
+            
+            <ul><text><b>Essential API List</b></text>
+                <li>Fakes &nbsp <a href="https://sinonjs.org/releases/v6.3.4/fakes/" style="text-decoration: none"> <text>[View Details on Official Website]</text></a>
+                    <ul>
+                        <li>a <text>fake</text> is a Function that records arguments, return value, the value of this and exception thrown (if any) for all of its calls.</li>
+                        <li>It can be created with or without behavior; it can wrap an existing function.</li>
+                        <li>Creating a fake
+                            <pre class="prettyprint">
+                                // create a basic fake, with no behavior
+                                var fake = sinon.fake();
+
+                                fake();
+
+                                console.log(fake.callCount);
+                                // 1
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Spies &nbsp <a href="https://sinonjs.org/releases/v6.3.4/spies/" style="text-decoration: none"> <text>[View Details on Official Website]</text></a>
+                    <ul>
+                        <li>A test spy is a function that records arguments, return value, the value of this and exception thrown (if any) for all its calls.</li>
+                        <li>Creating a spy
+                            <pre class="prettyprint">
+                                // Creates an anonymous function that records arguments, this value, exceptions and return values for all calls.
+                                var spy = sinon.spy();
+
+                                // Spies on the provided function
+                                var spy = sinon.spy(myFunc);
+
+                                // Creates a spy for object.method and replaces the original method with the spy. 
+                                var spy = sinon.spy(object, "method");
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Stubs &nbsp <a href="https://sinonjs.org/releases/v6.3.4/stubs/" style="text-decoration: none"> <text>[View Details on Official Website]</text></a>
+                    <ul>
+                        <li>Test stubs are functions (spies) with pre-programmed behavior.</li>
+                        <li>When to use stubs?
+                            <ul>
+                                <li>Control a method's behavior from a test to force the code down a specific path. Examples include forcing a method to throw an error in order to test error handling.</li>
+                                <li>When you want to prevent a specific method from being called directly (possibly because it triggers undesired behavior, such as a XMLHttpRequest or similar).</li>
+                            </ul>
+                        </li>
+                        <li>Creating a stub
+                            <pre class="prettyprint">
+                                // Creates an anonymous stub function
+                                var stub = sinon.stub();
+
+                                // Replaces object.method with a stub function. An exception is thrown if the property is not already a function.
+                                var stub = sinon.stub(object, "method");
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Mocks &nbsp <a href="https://sinonjs.org/releases/v6.3.4/mocks/" style="text-decoration: none"> <text>[View Details on Official Website]</text></a>
+                    <ul>
+                        <li>Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.</li>
+                        <li>When to use Mocks?
+                            <ul>
+                                <li>Mocks should only be used for the method under test. In every unit test, there should be one unit under test.</li>
+                                <li>If you want to control how your unit is being used and like stating expectations upfront (as opposed to asserting after the fact), use a mock.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
 
         </p>
        </div>
