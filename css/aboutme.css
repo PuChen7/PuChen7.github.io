@@ -90,3 +90,12 @@ ul {
 #highlight{
   color: #0881B3;
 }
+
+.footer {
+  padding-bottom: 5px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  
+}

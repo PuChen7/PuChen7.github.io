@@ -7,6 +7,14 @@
 
         <!-- CSS link -->
         <link rel="stylesheet" href="css/archives.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+                $(document).ready(function(){
+                    var x = document.lastModified;
+                    $('footer').append(x);
+                });                
+        </script>
     </head>
 
     <body>
@@ -64,6 +72,9 @@
 
            <div id="blog"><a href="blog/database-notes.html">Database Management and MySQL</a><br><span>Database Notes</span></div>
            <br><hr style="border-top: 1px solid #E9E9E9;" width="10%"><br>
-       </div>
+        </div>
+
+        <footer id="footerEdit" class="footer">Copyright &copy; Pu Chen. Last Modified: </footer>
+        
     </body>
 </html>

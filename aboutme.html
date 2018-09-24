@@ -6,6 +6,14 @@
 
         <!-- CSS links -->
         <link rel="stylesheet" href="css/aboutme.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+                $(document).ready(function(){
+                    var x = document.lastModified;
+                    $('footer').append(x);
+                });                
+        </script>
     </head>
 
     <body>
@@ -44,5 +52,6 @@
            <script type="text/javascript" src="//rf.revolvermaps.com/0/0/1.js?i=50gvdfvci6q&amp;s=220&amp;m=7&amp;v=true&amp;r=false&amp;b=000000&amp;n=false&amp;c=ff0000" async="async"></script>
        </div>
 
+       <footer id="footerEdit" class="footer">Copyright &copy; Pu Chen. Last Modified: </footer>
     </body>
 </html>

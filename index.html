@@ -11,33 +11,31 @@
         <script>
                 $(document).ready(function(){
                     var x = document.lastModified;
-                document.getElementById("footerEdit").innerHTML = x;
-                
-                  // Add smooth scrolling to all links
-                  $("a").on('click', function(event) {
-                
-                    // Make sure this.hash has a value before overriding default behavior
-                    if (this.hash !== "") {
-                      // Prevent default anchor click behavior
-                      event.preventDefault();
-                
-                      // Store hash
-                      var hash = this.hash;
-                
-                      // Using jQuery's animate() method to add smooth page scroll
-                      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                      $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                      }, 800, function(){
-                   
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                      });
-                    } // End if
-                  });
-                });
+                    //document.getElementById("footerEdit").innerHTML = x;
+                    $('footer').append(x);
 
-                
+                    // Add smooth scrolling to all links
+                    $("a").on('click', function(event) {
+                        // Make sure this.hash has a value before overriding default behavior
+                        if (this.hash !== "") {
+                            // Prevent default anchor click behavior
+                            event.preventDefault();
+                    
+                            // Store hash
+                            var hash = this.hash;
+                    
+                            // Using jQuery's animate() method to add smooth page scroll
+                            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                            $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                            }, 800, function(){
+                        
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                            });
+                        } // End if
+                    });
+                });                
         </script>
     </head>
 
@@ -85,8 +83,10 @@
                 <br>
                 <button style="margin-top: 100px;" onclick="window.location.href='https://github.com/PuChen7'" class="btn draw-border">Learn More</button>
            </section>
+
+           <footer id="footerEdit" class="footer">Copyright &copy; Pu Chen. Last Modified: </footer>
        </div> 
        
-       <div id="footerEdit" class="footer"></div>
+       
     </body>
 </html>
