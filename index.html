@@ -10,6 +10,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
                 $(document).ready(function(){
+                    var x = document.lastModified;
+                document.getElementById("footerEdit").innerHTML = x;
+                
                   // Add smooth scrolling to all links
                   $("a").on('click', function(event) {
                 
@@ -33,6 +36,8 @@
                     } // End if
                   });
                 });
+
+                
         </script>
     </head>
 
@@ -80,6 +85,8 @@
                 <br>
                 <button style="margin-top: 100px;" onclick="window.location.href='https://github.com/PuChen7'" class="btn draw-border">Learn More</button>
            </section>
-       </div>
+       </div> 
+       
+       <div id="footerEdit" class="footer"></div>
     </body>
 </html>
