@@ -63,9 +63,9 @@ nav li a:hover {
 
 /**********************/
 h1{
+  font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
   color: black;
   padding-top: 80px;
-  font-weight: 400;
   text-align: center;
   font-size: 40px;
 }
