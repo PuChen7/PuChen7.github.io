@@ -5,9 +5,9 @@
 
 #social {
   margin: 20px 10px;
-  text-align: right;
   display: inline-block;
   padding-left: 50px;
+  padding-bottom: 100px;
 }
 
 .smGlobalBtn{ /* global button class */
@@ -71,7 +71,7 @@
 
 .githubBtn:hover{
     color: black;
-    background: black;
+    background: white;
 }
 
 /* google plus button class*/
