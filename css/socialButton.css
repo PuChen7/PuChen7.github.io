@@ -4,10 +4,13 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 
 #social {
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
   display: inline-block;
-  padding-left: 50px;
-  padding-bottom: 100px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-right: 5%;
+  padding-bottom: 5%;
 }
 
 .smGlobalBtn{ /* global button class */

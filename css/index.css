@@ -69,7 +69,7 @@ li a {
   text-align: center;
   font-size: 30px;
   padding-top: 50px;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   /*padding-left: 310px;*/
    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
