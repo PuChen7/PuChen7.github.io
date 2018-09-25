@@ -12,7 +12,7 @@
     <body>
         <!-- Navigation Bar -->
         <nav>
-            <div class="tag">Java Basic Concepts | Pu Chen</div>
+            <div class="tag">Core Java | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
                 <li><a href="../archives.html">Archives</a></li>
@@ -142,7 +142,18 @@
             <br>
 
             <h>Garbage Collector</h><br>
-            <br>
+            <ul>
+                <li>Not to care for all those objects which are no longer in use. <text>Garbage collector</text> destroys these objects.</li>
+                <li>Garbage collector is best example of <text>Daemon thread</text> as it is always running in background.</li>
+                <li>Main objective of Garbage Collector is to free <text>heap memory</text> by destroying unreachable objects.</li>
+                <li>Eligibility for garbage collection:
+                    <ul>
+                        <li><text>Unreachable objects</text> : An object is said to be unreachable iff it doesn’t contain any reference to it.</li>
+                        <li>Object created inside method</li>
+                        <li>Nullifying the reference variable</li>
+                    </ul>
+                </li>
+            </ul>
 
             <h>Thread</h><br>
             <br>
@@ -255,6 +266,116 @@
             <b>Stack</b>: Stack memory is responsible for holding references to heap objects and for storing value types. 
             Thread has its own stack. Only exist within the scope of the function, once return, they are destroyed.<br>
             <b>Heap</b>: referenced by stack. Objects are created on heap.<br>
+            
+            <br>
+            
+            <h>Array Copy</h><br>
+            <ul>Ways to achieve array copy:
+                <li><text>Object.clone()</text>: provided by Object class</li>
+                <li><text>System.arraycopy()</text>: provided by System class</li>
+                <li><text>Arrays.copyOf()</text></li>
+                <li><text>Arrays.copyOfRange()</text>: uses System.arraycopy() method itself</li>
+            </ul>
+
+            <h>Serialization</h><br>
+            <mark>Serialization</mark> is a mechanism of converting the state of an object into a <text>byte stream</text>.<br>
+            <mark>Deserialization</mark> is the reverse process where the byte stream is used to recreate the actual Java object in memory.<br>
+            <ul>
+                <li>If you want a class object to be <text>serializable</text>, all you need to do it implement the <mark>java.io.Serializable</mark> interface.</li>
+                <li>Serialization in java is implemented by <mark>ObjectInputStream</mark> and <mark>ObjectOutputStream</mark>.</li>
+            </ul>
+
+            <b>Example:</b><br>
+            Example of Serialize to a file and Deserialize from the same file.
+        
+            <pre class="prettyprint">
+                import java.io.FileInputStream;
+                import java.io.FileOutputStream;
+                import java.io.IOException;
+                import java.io.ObjectInputStream;
+                import java.io.ObjectOutputStream;
+
+                public class SerializationUtil {
+                    // deserialize to Object from given file
+                    public static Object deserialize(String fileName) throws IOException, ClassNotFoundException {
+                        FileInputStream fis = new FileInputStream(fileName);
+                        ObjectInputStream ois = new ObjectInputStream(fis);
+                        Object obj = ois.readObject();
+                        ois.close();
+                        return obj;
+                    }
+
+                    // serialize the given object and save it to file
+                    public static void serialize(Object obj, String fileName) throws IOException {
+                        FileOutputStream fos = new FileOutputStream(fileName);
+                        ObjectOutputStream oos = new ObjectOutputStream(fos);
+                        oos.writeObject(obj);
+                        fos.close();
+                    }
+                }
+            </pre>
+
+            <pre class="prettyprint">
+                import java.io.IOException;
+
+                public class SerializationTest {
+                    
+                    public static void main(String[] args) {
+                        String fileName="employee.ser";
+                        Employee emp = new Employee();
+                        emp.setId(100);
+                        emp.setName("Pankaj");
+                        emp.setSalary(5000);
+                        
+                        //serialize to file
+                        try {
+                            SerializationUtil.serialize(emp, fileName);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            return;
+                        }
+                        
+                        Employee empNew = null;
+                        try {
+                            empNew = (Employee) SerializationUtil.deserialize(fileName);
+                        } catch (ClassNotFoundException | IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            </pre>
+            <br>
+
+            <ul><b>Serialization Methods</b>
+                <li><text>readObject(ObjectInputStream ois)</text>: If this method is present in the class, ObjectInputStream readObject() method will use this method for reading the object from stream.</li>
+                <li><text>writeObject(ObjectOutputStream oos)</text>: If this method is present in the class, ObjectOutputStream writeObject() method will use this method for writing the object to stream. </li>
+                <li><text>Object writeReplace()</text>: If this method is present, then after serialization process this method is called and the object returned is serialized to the stream.</li>
+                <li><text>Object readResolve()</text>: If this method is present, then after deserialization process, this method is called to return the final object to the caller program.</li>
+            </ul>
+
+            <ul><b>Serialization with Inheritance</b>
+                <li><b><text>Case 1</text>: If superclass is serializable then subclass is automatically serializable</b>
+                    <ul>
+                        <li>If superclass is Serializable, then by default every subclass is serializable.</li>
+                    </ul>
+                </li>
+                <li><b><text>Case 2</text>: If a superclass is not serializable then subclass can still be serialized</b>
+                    <ul>
+                        <li>Even though superclass doesn't implements Serializable interface, we can serialize subclass object if subclass itself implements Serializable interface.</li>
+                    </ul>
+                </li>
+                <li><b><text>Case 3</text>: If the superclass is serializable but we don't want the subclass to be serialized</b>
+                    <ul>
+                        <li>One possible way by which a programmer can achieve this is by implementing the <mark>writeObject()</mark> and <mark>readObject()</mark> methods in the subclass and needs to throw NotSerializableException from these methods.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <b><text>transient</text> keyword in Java</b><br>
+            <ul>
+                <li>If we don’t want to save value of a particular variable in a file, then we use transient keyword. When JVM comes across transient keyword, it ignores original value of the variable and save default value of that variable data type.</li>
+                <li>transient keyword plays an important role to meet security constraints. There are various real-life examples where we don’t want to save private data in file. </li>
+            </ul>
        </div>
 
     </body>
