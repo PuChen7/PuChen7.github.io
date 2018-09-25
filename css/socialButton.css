@@ -5,8 +5,9 @@
 
 #social {
   margin: 20px 10px;
-  text-align: center;
+  text-align: right;
   display: inline-block;
+  padding-left: 50px;
 }
 
 .smGlobalBtn{ /* global button class */
@@ -56,6 +57,21 @@
 .twitterBtn:hover{
       color: #00ABE3;
       background: #fff;
+}
+
+/* github button class*/
+.githubBtn{
+  background: black;
+}
+
+.githubBtn:before{
+    font-family: "FontAwesome";
+    content: "\f09b"; /* add twitter icon */
+}
+
+.githubBtn:hover{
+    color: black;
+    background: black;
 }
 
 /* google plus button class*/
