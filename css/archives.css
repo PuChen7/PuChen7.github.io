@@ -70,10 +70,19 @@ h1{
   font-size: 40px;
 }
 
-.archivesContent{
+.archivesContent:after{
+  column-count: 4;
+  content: "";
+  display: table;
+  clear: both;
+  line-height: 1;
+}
+
+.column {
   text-align: center;
-  padding-top: 30px;
-  line-height: 1.6;
+  float: left;
+  width: 25%;
+  padding-top: 10px;
 }
 
 #blog a{
@@ -87,14 +96,6 @@ h1{
 }
 
 /*********** Blog ******************/
-.blog-content{
-  padding-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-  line-height: 1.6;
-  padding-bottom: 50px;
-}
-
 h{
   font-size: 25px;
   font-weight: bold;
