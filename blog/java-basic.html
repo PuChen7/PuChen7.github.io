@@ -5,7 +5,7 @@
         <title>Pu Chen | Blog</title>
 
         <!-- CSS links -->
-        <link rel="stylesheet" href="../css/archives.css" />
+        <link rel="stylesheet" href="../css/blog.css" />
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     </head>
 
@@ -148,7 +148,7 @@
                 <li>Main objective of Garbage Collector is to free <text>heap memory</text> by destroying unreachable objects.</li>
                 <li>Eligibility for garbage collection:
                     <ul>
-                        <li><text>Unreachable objects</text> : An object is said to be unreachable iff it doesn’t contain any reference to it.</li>
+                        <li><text>Unreachable objects</text> : An object is said to be unreachable iff it doesn't contain any reference to it.</li>
                         <li>Object created inside method</li>
                         <li>Nullifying the reference variable</li>
                     </ul>
@@ -373,8 +373,102 @@
 
             <b><text>transient</text> keyword in Java</b><br>
             <ul>
-                <li>If we don’t want to save value of a particular variable in a file, then we use transient keyword. When JVM comes across transient keyword, it ignores original value of the variable and save default value of that variable data type.</li>
-                <li>transient keyword plays an important role to meet security constraints. There are various real-life examples where we don’t want to save private data in file. </li>
+                <li>If we don't want to save value of a particular variable in a file, then we use transient keyword. When JVM comes across transient keyword, it ignores original value of the variable and save default value of that variable data type.</li>
+                <li>transient keyword plays an important role to meet security constraints. There are various real-life examples where we don't want to save private data in file. </li>
+            </ul>
+
+            <h>Java Multithreading</h><br>
+            <b>Life Cycle of a Thread</b><br>
+            <img src="../img/Thread_Life_Cycle.jpg" style="width:40%;height:40%;"><br>
+            <ul>
+                <li><text>New</text>: A new thread begins its life cycle in the new state. It remains in this state until the program starts the thread.</li>
+                <li><text>Runnable</text>: After a newly born thread is started, the thread becomes runnable. A thread in this state is considered to be executing its task.</li>
+                <li><text>Waiting</text>: Sometimes, a thread transitions to the waiting state while the thread waits for another thread to perform a task. A thread transitions back to the runnable state only when another thread signals the waiting thread to continue executing.</li>
+                <li><text>Timed Waiting</text>: A runnable thread can enter the timed waiting state for a specified interval of time.</li>
+                <li><text>Terminated</text>: A runnable thread enters the terminated state when it completes its task or otherwise terminates.</li>
+            </ul>
+
+
+            <ul><b>Thread creation by extending the Thread class</b>
+                <li>Create a class that extends the java.lang.Thread class</li>
+                <li>This class overrides the <text>run()</text> method available in the <text>Thread</text> class.</li>
+                <li> A thread begins its life inside <text>run()</text> method. We create an object of our new class and call <text>start()</text> method to start the execution of a thread.</li>
+                <li>Start() invokes the run() method on the Thread object.</li>
+            </ul>
+
+            <pre class="prettyprint">
+                    // Java code for thread creation by extending the Thread class 
+                    class MultithreadingDemo extends Thread { 
+                        public void run() { 
+                            try { 
+                                // Displaying the thread that is running 
+                                System.out.println ("Thread " + Thread.currentThread().getId() + " is running"); 
+                      
+                            } 
+                            catch (Exception e) { 
+                                // Throwing an exception 
+                                System.out.println ("Exception is caught"); 
+                            } 
+                        } 
+                    } 
+                      
+                    // Main Class 
+                    public class Multithread { 
+                        public static void main(String[] args) { 
+                            int n = 8; // Number of threads 
+                            for (int i=0; i<8; i++) { 
+                                MultithreadingDemo object = new MultithreadingDemo(); 
+                                object.start(); 
+                            } 
+                        } 
+                    } 
+
+                    /* Output
+                    Thread 8 is running
+                    Thread 9 is running
+                    Thread 10 is running
+                    Thread 11 is running
+                    Thread 12 is running
+                    Thread 13 is running
+                    Thread 14 is running
+                    Thread 15 is running */
+            </pre>
+
+            <ul><b>Thread creation by implementing the Runnable Interface</b>
+                <li>Create a new class which implements <text>java.lang.Runnable</text> interface and <text>override run()</text>> method.</li>
+                <li>Then instantiate a <text>Thread object</text> and call <text>start()</text> method on this object.</li>
+            </ul>
+            <pre class="prettyprint">
+                    // Java code for thread creation by implementing the Runnable Interface 
+                    class MultithreadingDemo implements Runnable { 
+                        public void run() { 
+                            try { 
+                                // Displaying the thread that is running 
+                                System.out.println ("Thread " + Thread.currentThread().getId() + " is running"); 
+                      
+                            } 
+                            catch (Exception e) { 
+                                // Throwing an exception 
+                                System.out.println ("Exception is caught"); 
+                            } 
+                        } 
+                    } 
+                      
+                    // Main Class 
+                    class Multithread { 
+                        public static void main(String[] args) { 
+                            int n = 8; // Number of threads 
+                            for (int i=0; i<8; i++) { 
+                                Thread object = new Thread(new MultithreadingDemo()); 
+                                object.start(); 
+                            } 
+                        } 
+                    } 
+            </pre>
+
+            <ul><b>Thread Class vs Runnable Interface</b>
+                <li>If we extend the <text>Thread class</text>, our class cannot extend any other class because Java doesn't support <text>multiple</text> inheritance. But, if we implement the <text>Runnable interface</text>, our class can still extend other base classes.</li>
+                <li>We can achieve basic functionality of a thread by extending <text>Thread class</text> because it provides some inbuilt methods like yield(), interrupt() etc. that are not available in <text>Runnable interface</text>.</li>
             </ul>
        </div>
 
