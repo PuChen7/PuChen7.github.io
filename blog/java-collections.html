@@ -31,6 +31,56 @@
             <br>
             <img src="../img/collection-hierarchy.jpg" style="width:40%;height:40%;"><br>
             <br>
+
+            <h>List, Set, Map</h><br>
+            <ul>
+                <li><b><text>List</text></b>: 
+                    <ul>
+                        <li><text>Duplicate</text>: allow any number of duplicates</li>
+                        <li><text>Order</text>: keeps insertion order</li>
+                        <li><text>null elements</text>: allow any number of null values</li>
+                        <li><text>Implementations</text>: ArrayList, LinkedList, Vector</li>
+                        <li>When to use:
+                            <ul>
+                                <li>need to access elements frequently by using the index</li>
+                                <li>need to keep insertion order to store elements</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><b><text>Set</text></b>:
+                    <ul>
+                        <li><text>Duplicate</text>: doesn't allow duplicates</li>
+                        <li><text>Order</text>: unordered</li>
+                        <li><text>null elements</text>: one null values</li>
+                        <li><text>Implementations</text>: HashSet, LinkedHashSet, TreeSet</li>
+                        <li>When to use:
+                            <ul>
+                                <li>don't want any duplicates</li>
+                            </ul>
+                        </li>
+                        <li>Additional Features:
+                            <li>TreeSet is a SortedSet and elements stored on TreeSet can be sorted by using Comparator or Comparable in Java.</li>
+                            <li>LinkedHashSet also maintains insertion order.</li>
+                        </li>
+                    </ul>
+                </li>
+                <li><b><text>Map</text></b>: 
+                    <ul>
+                        <li><text>Duplicate</text>: may contain duplicate values but keys are always unique</li>
+                        <li><text>Order</text>: referenced by key/value pair</li>
+                        <li><text>null elements</text>: Hashtable doesn't allow null key or values but HashMap allows null values and one null key (main difference between Hashtable and HashMap)</li>
+                        <li><text>Implementations</text>: HashMap, LinkedHashMap, Hashtable, TreeMap</li>
+                        <li>When to use:
+                            <ul>
+                                <li>need to store data in form of key and value</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
             
             <h>ArrayList Class</h><br>
             It inherits AbstractList class and implements List interface.<br>
