@@ -7,11 +7,42 @@
         <!-- CSS links -->
         <link rel="stylesheet" href="../css/blog.css" />
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                // Add smooth scrolling to all links
+                $("a").on('click', function(event) {
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+                
+                        // Store hash
+                        var hash = this.hash;
+                
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top - ($('#nav-bar').height()+10)
+                        }, 800, function(){
+                    
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                        
+                        });
+                    } // End if
+                });
+            });        
+            
+            
+        </script>
     </head>
 
     <body>
         <!-- Navigation Bar -->
-        <nav>
+        <nav id="nav-bar">
             <div class="tag">Core Java | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
@@ -20,12 +51,19 @@
                 <li><a href="https://github.com/PuChen7">Projects</a></li>
                 <li><a class="active" href="../index.html">Home</a></li>
             </ul>
-       </nav>
+        </nav>
 
-       <div id="guide"><h><b>Java Fundamental Knowledge</b></h></div>
+        <div id="guide"><h><b>Topics Covered in this Page</b></h>
+            <ol>
+                <li><a href="#java-key-words-sec">Java Key Words</a></li>
+                <li><a href="#access-modifiers-sec">Access Modifiers</a></li>
+                <li><a href="#wrapper-class-sec">Wrapper Class</a></li>
+                <li><a href="#exception-sec">Exception</a></li>
+            </ol>
+        </div>
        <!-- Main body of the front page -->
        <div class="blog-content">
-            <h>Java Key Words</h>
+            <h><span id="java-key-words-sec"Java Key Words></span>Java Key Words</h>
             <ul>
                 <li><text><b>final</b></text>:
                     <ul>
@@ -51,7 +89,7 @@
                 </li>
             </ul>
 
-            <h>Access Modifiers</h>
+            <h id="access-modifiers-sec">Access Modifiers</h>
             <ul>
                 <li> <text><b>default</b></text>: Visible to the package. No modifiers are needed.
                     <ul>
@@ -81,7 +119,7 @@
 
             <br>
 
-            <h>Wrapper Class</h><br>
+            <h id="wrapper-class-sec">Wrapper Class</h><br>
             Wrapper classes are used to convert any data type into an object.
             <ul>
                 <li><text><b>Autoboxing</b></text>: Automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing.</li>
@@ -155,9 +193,6 @@
                 </li>
             </ul>
 
-            <h>Thread</h><br>
-            <br>
-
             <h>Java Compile-time Vs Run-time</h><br>
             <text><b>Compile-time</b></text> is the instance where the code you entered is converted to executable while <text><b>Run-time</b></text> is the instance where the executable is running.<br><br>
             <b>What could happen at <text>Compile time</text></b>?<br>
@@ -193,14 +228,12 @@
                 <li><mark><b>JVM</b></mark>: contained in both JRE and JDK. JVM is responsible for executing the java program line by line. Also known as <mark>interpreter</mark></li>
             </ul>
 
-            <h>What is class loader</h><br>
+            <h>Class loader</h><br>
             The Java Class loader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine.<br>
-
-            <h>Lambda Expression</h><br>
 
             <br>
 
-            <h>Exceptions</h><br>
+            <h id="exception-sec">Exceptions</h><br>
             Exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.<br>
             <br><img src="../img/exception.jpg" style="width:40%;height:40%;"><br>
             <br>
@@ -470,7 +503,58 @@
                 <li>If we extend the <text>Thread class</text>, our class cannot extend any other class because Java doesn't support <text>multiple</text> inheritance. But, if we implement the <text>Runnable interface</text>, our class can still extend other base classes.</li>
                 <li>We can achieve basic functionality of a thread by extending <text>Thread class</text> because it provides some inbuilt methods like yield(), interrupt() etc. that are not available in <text>Runnable interface</text>.</li>
             </ul>
-       </div>
+            
+            <ul><b>join()</b>
+                <li>If <mark>t</mark> is a Thread object whose thread is currently executing, then <mark>t.join();</mark> it causes the current thread to pause its execution until <mark>thread t</mark> completes its execution.</li>
+                <li>overloaded join()
+                    <ul>
+                        <li>public final void join()</li>
+                        <li>public final synchronized void join(long millis)</li>
+                        <li>public final synchronized void join(long millis, int nanos)</li>
+                    </ul>
+                </li>
+            </ul>
 
+            <ul><b>Synchronized</b>
+                <li>Why use: situation where multiple threads try to access the same resources</li>
+                <li>Using synchronized blocks: All synchronized blocks synchronized on the same object can only have <mark>one thread</mark> executing inside them at a time.</li>
+            </ul>
+            <pre class="prettyprint">
+                    // Only one thread can execute at a time. 
+                    // sync_object is a reference to an object
+                    // whose lock associates with the monitor. 
+                    // The code is said to be synchronized on
+                    // the monitor object
+                    synchronized(sync_object) {
+                       // Access shared variables and other
+                       // shared resources
+                    }
+            </pre>
+
+            <ul><b>Interthread Communication</b>
+                <li>Why use: when threads need to exchange information</li>
+                <li>Methods:
+                    <ul>
+                        <li><text>public void wait()</text>: Causes the <mark>current thread</mark> to wait until another thread invokes the <mark>notify()</mark>.</li>
+                        <li><text>public void notify()</text>: Wakes up a single thread that is waiting on this object's monitor.</li>
+                        <li><text>public void notifyAll()</text>: Wakes up all the threads that called wait( ) on the same object.</li>
+                        <li>All three methods can be called only from within a <text>synchronized</text> context</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul><b>Deadlock</b>
+                <li>Deadlock describes a situation where two or more threads are blocked forever, waiting for each other.</li>
+                <li>Deadlock occurs when multiple threads need the same locks but obtain them in different order.</li>
+                <li>Avoid:
+                    <ul>
+                        <li>Avoid Nested Locks</li>
+                        <li>Avoid Unnecessary Locks</li>
+                        <li>Using thread join</li>
+                    </ul>
+                </li>
+            </ul>
+       </div>
+       
     </body>
 </html>

@@ -15,16 +15,14 @@ nav {
     font-weight: lighter;
     font-size: 19px;
     height: 50px;
-    display: inline;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    
     overflow: hidden;
     background-color: white;
     position: fixed;
-    top: 0;
     width: 100%;
     border-bottom:1px solid #E9E9E9;
+    
 }
 
 nav ul {
@@ -71,6 +69,7 @@ h1{
 }
 
 .archivesContent{
+  position: static;
   text-align: center;
   padding-top: 30px;
   line-height: 1.6;
@@ -99,7 +98,9 @@ h{
   font-size: 25px;
   font-weight: bold;
   color: #3C588F;
+  position:static;
 }
+
 
 text{
   color: #0881B3;
@@ -110,6 +111,10 @@ text{
   padding-top: 80px;
   margin-left: 50px;
   text-align: left;
+}
+
+#guide ol li a{
+  text-decoration: none;
 }
 
 .blog-content ul a{
@@ -129,3 +134,4 @@ code{
   text-align: center;
   padding-bottom: 5px;
 }
+
