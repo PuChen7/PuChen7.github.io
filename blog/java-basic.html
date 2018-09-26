@@ -34,9 +34,7 @@
                         });
                     } // End if
                 });
-            });        
-            
-            
+            });                    
         </script>
     </head>
 
@@ -58,7 +56,18 @@
                 <li><a href="#java-key-words-sec">Java Key Words</a></li>
                 <li><a href="#access-modifiers-sec">Access Modifiers</a></li>
                 <li><a href="#wrapper-class-sec">Wrapper Class</a></li>
-                <li><a href="#exception-sec">Exception</a></li>
+                <li><a href="#generics-sec">Generics</a></li>
+                <li><a href="#comparable-sec">Comparable and Comparator</a></li>
+                <li><a href="#garbage-sec">Garbage Collection</a></li>
+                <li><a href="#compile-sec">Java Compile-time Vs Run-time</a></li>
+                <li><a href="#work-sec">How java works</a></li>
+                <li><a href="#class-loader-sec">Class Loader</a></li>
+                <li><a href="#exception-sec">Exceptions</a></li>
+                <li><a href="#lang-sec">java.lang and java.util</a></li>
+                <li><a href="#mem-model-sec">Memory Model</a></li>
+                <li><a href="#array-copy-sec">Array Copy</a></li>
+                <li><a href="#serial-sec">Serialization</a></li>
+                <li><a href="#multi-sec">Java Multithreading</a></li>
             </ol>
         </div>
        <!-- Main body of the front page -->
@@ -128,7 +137,7 @@
 
             <br>
 
-            <h>Generics</h><br>
+            <h id="generics-sec">Generics</h><br>
             Generics was added in Java 5 to provide compile-time type checking 
             and removing risk of ClassCastException that was common while working with collection classes.<br>
             It provides compile time type-safety and ensures that you only insert correct Type in collection and avoids ClassCastException in runtime.<br>
@@ -151,7 +160,7 @@
 
             <br>
 
-            <h>Comparable and Comparator</h><br>
+            <h id="comparable-sec">Comparable and Comparator</h><br>
             <text><b>Comparable</b></text> and <text><b>Comparator</b></text> both are interfaces and can be used to sort collection elements.
             It provide <text><b>single sorting sequence</b></text> only.<br><br>
             
@@ -179,7 +188,7 @@
 
             <br>
 
-            <h>Garbage Collector</h><br>
+            <h id="garbage-sec">Garbage Collection</h><br>
             <ul>
                 <li>Not to care for all those objects which are no longer in use. <text>Garbage collector</text> destroys these objects.</li>
                 <li>Garbage collector is best example of <text>Daemon thread</text> as it is always running in background.</li>
@@ -192,8 +201,8 @@
                     </ul>
                 </li>
             </ul>
-
-            <h>Java Compile-time Vs Run-time</h><br>
+            <!-- ****************************************************************** -->
+            <h id="compile-sec">Java Compile-time Vs Run-time</h><br>
             <text><b>Compile-time</b></text> is the instance where the code you entered is converted to executable while <text><b>Run-time</b></text> is the instance where the executable is running.<br><br>
             <b>What could happen at <text>Compile time</text></b>?<br>
             <ul>
@@ -210,7 +219,8 @@
 
             <br><img src="../img/run-compile-time.jpg" style="width:40%;height:40%;"><br>
 
-            <h>How Java works</h><br>
+            <!-- ****************************************************************** -->
+            <h id="work-sec">How Java works</h><br>
             <ul>
                 <li>Source file(.java)</li>
                 <li>run source file through <text><b>Java Compiler (javac)</b></text>. It checks for error and syntax in the source file. 
@@ -228,11 +238,13 @@
                 <li><mark><b>JVM</b></mark>: contained in both JRE and JDK. JVM is responsible for executing the java program line by line. Also known as <mark>interpreter</mark></li>
             </ul>
 
-            <h>Class loader</h><br>
+            <!-- ****************************************************************** -->
+            <h id="class-loader-sec">Class loader</h><br>
             The Java Class loader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine.<br>
 
             <br>
 
+            <!-- ****************************************************************** -->
             <h id="exception-sec">Exceptions</h><br>
             Exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.<br>
             <br><img src="../img/exception.jpg" style="width:40%;height:40%;"><br>
@@ -283,26 +295,31 @@
                     </ul>
                 </li>
             </ul>
+            
             <br>
-            <h><code>java.lang</code> and <code>java.util</code></h><br>
-            <code><b>Java.lang</b></code> is a package which contains the classes like 
+
+            <!-- ****************************************************************** -->
+            <h id="lang-sec">java.lang and java.util</h><br>
+            <b>Java.lang</b> is a package which contains the classes like 
             System, String, String Buffer etc., This package doesn't 
             have to be explicitly imported as they are imported by 
             default.<br>
-            <code><b>java.util</b></code> is a package which contains classes like 
+            <b>java.util</b> is a package which contains classes like 
             Date, Vector, Dictionary, hashtable etc., This has to be 
             imported everytime you use it in your program<br>
 
             <br>
 
-            <h>Memory Model</h><br>
+            <!-- ****************************************************************** -->
+            <h id="mem-model-sec">Memory Model</h><br>
             <b>Stack</b>: Stack memory is responsible for holding references to heap objects and for storing value types. 
             Thread has its own stack. Only exist within the scope of the function, once return, they are destroyed.<br>
             <b>Heap</b>: referenced by stack. Objects are created on heap.<br>
             
             <br>
             
-            <h>Array Copy</h><br>
+            <!-- ****************************************************************** -->
+            <h id="array-copy-sec">Array Copy</h><br>
             <ul>Ways to achieve array copy:
                 <li><text>Object.clone()</text>: provided by Object class</li>
                 <li><text>System.arraycopy()</text>: provided by System class</li>
@@ -310,7 +327,8 @@
                 <li><text>Arrays.copyOfRange()</text>: uses System.arraycopy() method itself</li>
             </ul>
 
-            <h>Serialization</h><br>
+            <!-- ****************************************************************** -->
+            <h id="serial-sec">Serialization</h><br>
             <mark>Serialization</mark> is a mechanism of converting the state of an object into a <text>byte stream</text>.<br>
             <mark>Deserialization</mark> is the reverse process where the byte stream is used to recreate the actual Java object in memory.<br>
             <ul>
@@ -410,7 +428,8 @@
                 <li>transient keyword plays an important role to meet security constraints. There are various real-life examples where we don't want to save private data in file. </li>
             </ul>
 
-            <h>Java Multithreading</h><br>
+            <!-- ****************************************************************** -->
+            <h id="multi-sec">Java Multithreading</h><br>
             <b>Life Cycle of a Thread</b><br>
             <img src="../img/Thread_Life_Cycle.jpg" style="width:40%;height:40%;"><br>
             <ul>

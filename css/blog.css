@@ -113,10 +113,20 @@ text{
   text-align: left;
 }
 
+/* topics link */
 #guide ol li a{
   text-decoration: none;
+  color: #0881B3;
 }
 
+#guide ol li a:visited{
+  color: rgb(93, 96, 97);
+}
+
+#guide ol li a:hover{
+  color: rgb(15, 219, 192);
+}
+/**********************/
 .blog-content ul a{
   color: #3C588F;
   text-decoration: none;
