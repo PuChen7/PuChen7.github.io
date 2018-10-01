@@ -532,6 +532,40 @@
                         <li>public final synchronized void join(long millis, int nanos)</li>
                     </ul>
                 </li>
+                <li>join() example
+                    <pre class="prettyprint">
+                        public class MultiThreading implements Runnable{
+                            public void run() {
+                                Thread info = Thread.currentThread();
+                                System.out.println(info.getName());
+                            }
+                            
+                            public static void main(String args[]) {
+                                
+                                Thread t1 = new Thread(new MultiThreading());
+                                Thread t2 = new Thread(new MultiThreading());
+                                
+                                // start t2
+                                t2.start();
+                                
+                                // use join() to let t1 wait until t2 terminated
+                                try {
+                                    t2.join();
+                                } catch(InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                
+                                // start t1
+                                t1.start();
+                            }
+                        }
+
+                        /* Output:
+                            Thread-1
+                            Thread-0
+                        */
+                    </pre>
+                </li>
             </ul>
 
             <ul><b>Synchronized</b>
@@ -572,6 +606,234 @@
                         <li>Using thread join</li>
                     </ul>
                 </li>
+                <li>Write code to result in <text>deadlock</text>:
+                    <pre class="prettyprint">
+                        public class Deadlock{
+
+                            public void method1(){
+                                synchronized(String.class){
+                                    System.out.println("acquired lock on String.class");
+
+                                    synchronized(Integer.class){
+                                        System.out.println("acquired lock on Integer.class");
+                                    }
+                                }
+                            }
+
+                            public void method2(){
+                                synchronized(Integer.class){
+                                    System.out.println("acquired lock on Integer.class");
+
+                                    synchronized(String.class){
+                                        System.out.println("acquired lock on String.class");
+                                    }
+                                }
+                            }
+                        }
+                    </pre>
+                    <ul>
+                        <li>If <text>method1()</text> and <text>method2()</text> both will be called by two or many threads , there is a good chance of <text>deadlock</text> because if thread 1 acquires lock on 
+                            <text>Sting object</text> while executing method1() and thread 2 acquires lock on Integer object while executing method2() both will be waiting for each other 
+                            to release lock on Integer and String to proceed further which will never happen.</li>
+                        <li>Fix: 
+                            <pre class="prettyprint">
+                                public class Deadlock{
+        
+                                    public void method1(){
+                                        synchronized(Integer.class){
+                                            System.out.println("acquired lock on Integer.class");
+        
+                                            synchronized(String.class){
+                                                System.out.println("acquired lock on String.class");
+                                            }
+                                        }
+                                    }
+        
+                                    public void method2(){
+                                        synchronized(Integer.class){
+                                            System.out.println("acquired lock on Integer.class");
+        
+                                            synchronized(String.class){
+                                                System.out.println("acquired lock on String.class");
+                                            }
+                                        }
+                                    }
+                                }
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <b>Difference between synchronized block and method</b><br>
+            Main difference between <text>synchronized method</text> and <text>synchronized block</text> is selection of lock on which <text>critical section</text> is locked.<br>
+            <ul>
+                <li><text>Synchronized method</text> vs <text>Synchronized block</text>: <text>Synchronized block</text> is more preferred way because it doesn't lock the <text>Object</text>, 
+                    <text>synchronized methods</text> lock the Object and if there are multiple synchronization blocks in the class, even though they are not related, 
+                    it will stop them from execution and put them in wait state to get the lock on Object.</li>
+                <li><text>Synchronized block</text> generally reduce scope of lock.</li>
+                <li>In case of <text>synchronized method</text>, lock is acquired by thread when it enter <text>method</text> and released when it leaves method, either normally or by throwing Exception.</li>
+                <li>In case of <text>synchronized block</text>, thread acquires lock when they enter <text>synchronized block</text> and release when they leave synchronized block.</li>
+                <li>
+                    <pre class="prettyprint">
+                        /**
+                        * Java class to demonstrate use of synchronization method and block in Java
+                        */
+                        public class SycnronizationExample{
+                            public synchronized void lockedByThis(){
+                                System.out.println(" This synchronized method is locked by current" instance of object i.e. this");
+                            }
+                        
+                            public static synchronized void lockedByClassLock(){
+                                System.out.println("This static synchronized method is locked by class level lock of this class i.e. SychronizationExample.class");
+                        
+                            }
+                        
+                            public void lockedBySynchronizedBlock(){
+                                System.err.println("This line is executed without locking");
+                            
+                                Object obj = String.class; //class level lock of Stirng class
+                            
+                                synchronized(obj){
+                                    System.out.println("synchronized block, locked by lock represented using obj variable");
+                                }
+                            }     
+                        }
+                    </pre>
+                </li>
+            </ul>
+
+            <b>Volatile</b><br>
+            <ul>
+                <li>used to signal threads, a compiler that this particular variables value are going to be updated by <text>multiple threads</text> inside Java application.</li>
+                <li>The volatile keyword can only be applied to a <text>variable</text>, it can not be applied to class or method. using volatile keyword along with class and method is a compiler error.</li>
+                <li>The values of volatile variable will <text>never be cached</text> and all writes and reads will be done to and from the <text>main memory</text>.</li>
+                <li>When to use: 
+                    <ul>
+                        <li>In some cases we may only desire the <text>visibility</text> and <text><mark>not</mark> atomicity</text>. Use of synchronized in such situation is an <text>overkill</text> and may cause scalability problems.</li>
+                        <li>Volatile variables have the <text>visibility features</text> of synchronized but <text><mark>not</mark> the atomicity</text> features.</li>
+                        <li>Any variable which is shared between multiple threads should be made variable, in order to ensure that all thread must see the latest value of the volatile variable.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <b>wait(), notify(), notifyAll()</b><br>
+            <ul>
+                <li><text>wait()</text>: tells the calling thread to give up the monitor and go to sleep until some other thread enters the same monitor and calls <text>notify()</text>.</li>
+                <li><text>notify()</text>: wakes up the first thread that called <text>wait()</text> on the same object.</li>
+                <li><text>notifyAll()</text>: wakes up all the threads that called wait() on the same object.</li>
+                <li>Producer and Consumer problem:
+                    <ul>
+                        <li>Producer:
+                            <pre class="prettyprint">
+                                import java.util.Queue;
+                                import java.util.Random;
+                                
+                                public class Producer implements Runnable{
+                                    private Queue<Integer> q;
+                                    private int max;
+                                    
+                                    public Producer(Queue<Integer> q, int max) {
+                                        this.q = q;
+                                        this.max = max;
+                                    }
+                                    
+                                    @Override
+                                    public void run() {
+                                        while (true) {	// a infinite loop to create and add random numbers
+                                            synchronized(q) { // synchronized block: no other thread should modify the queue when we are doing condition check.
+                                                while (q.size() == max) {	// IMPORTANT: it cannot assume that the state it was waiting for is still valid. 
+                                                                            // It may have been valid in the past, but the 
+                                                                            // state may have been changed after the notify() 
+                                                                            // method was called and before the consumer thread woke up. 
+                                                    try {
+                                                        System.out.println("producer queue is full");
+                                                        q.wait();	// wait until Consumer remove an item from queue
+                                                
+                                                    } catch(Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                                Random r = new Random();
+                                                int i = r.nextInt();
+                                                q.add(i);
+                                                System.out.println("added new item in Producer: " + i);
+                                                q.notifyAll();	// notify all that new item added
+                                            }
+                                        }
+                                    }
+                                }
+                            </pre>
+                        </li>
+                        <li>Consumer: 
+                            <pre class="prettyprint">
+                                import java.util.Queue;
+
+                                public class Consumer implements Runnable{
+                                    private Queue<Integer> q;
+                                    
+                                    public Consumer(Queue<Integer> q, int max) {
+                                        this.q = q;
+                                    }
+                                    
+                                    @Override
+                                    public void run() {
+                                        while (true) {
+                                            synchronized(q) {
+                                                while (q.isEmpty()) {
+                                                    System.out.println("queue is empty");
+                                                    try {
+                                                        q.wait();
+                                                    } catch(Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                                System.out.println("Consumed: " + q.remove());
+                                                q.notifyAll();
+                                            }
+                                        }
+                                    }
+                                }
+                            </pre>
+                        </li>
+                        <li>main:
+                            <pre class="prettyprint">
+                                import java.util.LinkedList;
+                                import java.util.Queue;
+                                
+                                public class MultiThreading {
+                                    public static void main(String args[]) {
+                                        // IMPORTANT: should create one queue for both thread (shared object), otherwise it's not shared
+                                        Queue<Integer> queue = new LinkedList<Integer>();
+                                        Thread pThread = new Thread(new Producer(queue, 10));
+                                        Thread cThread = new Thread(new Consumer(queue, 10));
+                                        
+                                        pThread.start();
+                                        cThread.start();
+                                    }
+                                }
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <b>Java Multithreading Questions:</b>
+            <ul>
+                <li>Difference between <b>start()</b> and <b>run()</b>: 
+                    <ul>
+                        <li><text>start method</text> creates a <text>new thread</text> and call the code written inside the run method on a new thread while <text>calling run method</text> executes that code on the <text>same thread</text>.</li>
+                    </ul>
+                </li>
+                <li>Difference between <b>wait()</b> and <b>sleep()</b>
+                    <ul>
+                        <li><text>wait</text> will release the lock and must be called from the <text>synchronized context</text>, while <text>sleep</text> will only pause the thread for some time and <text>keep the lock</text>.</li>
+                        <li><text>wait()</text> method should be used in conjunction with <text>notify()</text> or <text>notifyAll()</text> method and intended for communication between two threads in Java.</li>
+                        <li><text>Thread.sleep()</text> method is a utility method to introduce <text>short pauses</text> during program or thread execution. </li>
+                    </ul>
+                </li>
+                <li>When  </li>
             </ul>
        </div>
        
