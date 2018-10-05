@@ -7,6 +7,35 @@
         <!-- CSS links -->
         <link rel="stylesheet" href="../css/blog.css" />
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                // Add smooth scrolling to all links
+                $("a").on('click', function(event) {
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+                
+                        // Store hash
+                        var hash = this.hash;
+                
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top - ($('#nav-bar').height()+10)
+                        }, 800, function(){
+                    
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                        
+                        });
+                    } // End if
+                });
+            });                    
+        </script>
     </head>
 
     <body>
@@ -22,16 +51,30 @@
             </ul>
        </nav>
 
+       <div id="guide"><h><b>Topics Covered in this Page</b></h>
+            <ol>
+                <li><a href="#Database-Normalization">Database Normalization</a></li>
+                <li><a href="#limit-offset">LIMIT and OFFSET</a></li>
+                <li><a href="#ifnull">IFNULL</a></li>
+                <li><a href="#basic-ops">Basic Operations</a></li>
+                <li><a href="#null">NULL values</a></li>
+                <li><a href="#like">LIKE</a></li>
+                <li><a href="#alias">alias</a></li>
+            </ol>
+        </div>
+
        <!-- Main body of the front page -->
        <div class="blog-content">
            <br>
-            <h>Database Normalization</h><br>
+            <h id="Database-Normalization">Database Normalization</h><br>
             <ul>
                 <li><text>First Norm</text>: only singled value attribute</li>
                 <li><text>Second Norm</text>: No Partial Dependency (If proper subset of candidate key determines non-prime attribute, it is called partial dependency.)</li>
                 <li><text>Third Norm</text>: No Transitive Dependency.(When a non-prime attribute depends on other non-prime attributes rather than depending upon the prime attributes or primary key.)</li>
             </ul>
-            <h>LIMIT and OFFSET</h><br>
+
+
+            <h id="limit-offset">LIMIT and OFFSET</h><br>
             <code><text>SELECT column 
                 FROM table
                 LIMIT 18 OFFSET 8;</text>
@@ -39,13 +82,17 @@
             Start by reading the query from offset. First you offset by 8, which means you skip the first 8 results of the query. 
             Then you limit by 18. Which means you consider records 9, 10, 11, 12, 13, 14, 15, 16....24, 25, 26 which are a total of 18 records.<br>
             <br>
-            <h>IFNULL</h><br>
+
+
+            <h id="ifnull">IFNULL</h><br>
             <code><text>
                 IFNULL(expression, alt_value);
             </text></code><br>
             If expression is NOT NULL, the IFNULL() function returns expression, otherwise, return alt_value.<br>
             <br>
-            <h>Basic Operations</h><br>
+
+
+            <h id="basic-ops">Basic Operations</h><br>
             <b>Insert:</b><br>
             <code><text>INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);</text></code><br>
             <b>Update:</b><br>
@@ -55,18 +102,24 @@
             <b>Alter:</b><br>
             <code><text>ALTER TABLE table_name ADD column_name datatype;</text></code><br>
             <br>
-            <h>NULL value</h><br>
+
+
+            <h id="null">NULL value</h><br>
             A field with a NULL value is a field with no value.<br>
             <b>How to test if a data is NULL?</b>: use <text><code>IS NULL</code></text><br>
             <br>
-            <h>LIKE operator</h><br>
+
+
+            <h id="like">LIKE operator</h><br>
             <ul>
                 <li><text>%</text>: The percent sign represents zero, one, or multiple characters</li>
                 <li><text>_</text>: The underscore represents a single character</li>
             </ul>
             <text><code>SELECT column1, column2, ... FROM table_name WHERE columnN LIKE pattern;</code></text><br>
             <br>
-            <h>Aliases</h><br>
+
+
+            <h id="alias">Aliases</h><br>
             <b>Alias Column Syntax</b><br>
             <code><text>SELECT column_name AS alias_name FROM table_name;</text></code><br>
             <b>Alias Table Syntax</b><br>
