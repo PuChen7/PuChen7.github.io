@@ -40,7 +40,7 @@
 
     <body>
         <!-- Navigation Bar -->
-        <nav>
+        <nav id="nav-bar">
             <div class="tag">Database and MySQL | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
@@ -54,25 +54,104 @@
        <div id="guide"><h><b>Topics Covered in this Page</b></h>
             <ol>
                 <li><a href="#Database-Normalization">Database Normalization</a></li>
+                <li><a href="#constraints">Constraints</a></li>
+                <li><a href="#order-by">ORDER BY</a></li>
+                <li><a href="#in">IN</a></li>
+                <li><a href="#between">BETWEEN</a></li>
+                <li><a href="#min-max">MIN/MAX</a></li>
+                <li><a href="#union">UNION</a></li>
+                <li><a href="#join">JOIN</a></li>
+                <li><a href="#group-by">GROUP BY</a></li>
                 <li><a href="#limit-offset">LIMIT and OFFSET</a></li>
                 <li><a href="#ifnull">IFNULL</a></li>
                 <li><a href="#basic-ops">Basic Operations</a></li>
                 <li><a href="#null">NULL values</a></li>
                 <li><a href="#like">LIKE</a></li>
                 <li><a href="#alias">alias</a></li>
+                <li><a href="#select-into">SELECT...INTO</a></li>
+                <li><a href="#insert-into">INSERT INTO..SELECT...</a></li>
+                <li><a href="#procedure">Stored Procedure</a></li>
             </ol>
         </div>
 
        <!-- Main body of the front page -->
        <div class="blog-content">
-           <br>
-            <h id="Database-Normalization">Database Normalization</h><br>
+            <h id="Database-Normalization">Database Normalization</h>
             <ul>
                 <li><text>First Norm</text>: only singled value attribute</li>
                 <li><text>Second Norm</text>: No Partial Dependency (If proper subset of candidate key determines non-prime attribute, it is called partial dependency.)</li>
                 <li><text>Third Norm</text>: No Transitive Dependency.(When a non-prime attribute depends on other non-prime attributes rather than depending upon the prime attributes or primary key.)</li>
             </ul>
 
+            <h id="constraints">Constraints</h>
+            <ul>
+                <li><b>NOT NULL</b> - Ensures that a column cannot have a NULL value</li>
+                <li><b>UNIQUE</b> - Ensures that all values in a column are different</li>
+                <li><b>PRIMARY KEY</b> - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table</li>
+                <li><b>FOREIGN KEY</b> - Uniquely identifies a row/record in another table</li>
+                <li><b>CHECK</b> - Ensures that all values in a column satisfies a specific condition</li>
+                <li><b>DEFAULT</b> - Sets a default value for a column when no value is specified</li>
+                <li><b>INDEX</b> - Used to create and retrieve data from the database very quickly</li>
+            </ul>
+
+            <h id="order-by">ORDER BY</h>
+            <ul>
+                <li>ASC/DESC</li>
+            </ul>
+
+            <h id="in">IN</h>
+            <ul>
+                <li>The IN operator allows you to specify multiple values in a WHERE clause.</li>
+                <li>The IN operator is a shorthand for multiple OR conditions.</li>
+            </ul>
+
+            <h id="between">BETWEEN</h>
+            <ul>
+                <li>The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.</li>
+                <li>The BETWEEN operator is inclusive: begin and end values are included. </li>
+            </ul>
+
+            <h id="min-max">MIN/MAX</h>
+            <ul>
+                <li>The <text>MIN()</text> function returns the smallest value of the selected column.</li>
+                <li>The <text>MAX()</text> function returns the largest value of the selected column.</li>
+            </ul>
+            
+            <h id="union">UNION</h>
+            <ul>
+                <li>Each SELECT statement within UNION must have the same number of columns</li>
+                <li>The columns must also have similar data types</li>
+                <li>The columns in each SELECT statement must also be in the same order</li>
+                <li>Syntax:
+                    <ul>
+                        <li>Only <b>distinct</b>: <code><text>SELECT column_name(s) FROM table1
+                                UNION
+                                SELECT column_name(s) FROM table2;</text></code></li>
+                        <li>Allow <b>duplicates</b>: <code><text>SELECT column_name(s) FROM table1
+                                UNION ALL
+                                SELECT column_name(s) FROM table2;</text></code></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h id="join">JOIN</h>
+            <ul>
+                <li>A JOIN clause is used to combine rows from two or more tables, based on a related column between them.</li>
+                <li>Types of JOIN:
+                    <ul>
+                        <li>(INNER) JOIN: Returns records that have matching values in both tables</li>
+                        <li>LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table</li>
+                        <li>RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table</li>
+                        <li>FULL (OUTER) JOIN: Return all records when there is a match in either left or right table</li>
+                    </ul>
+                    <img src="../img/SQL-Inner-Join.jpg" style="width:40%;height:40%;"><br>
+                </li>
+            </ul>
+
+            <h id="group-by">GROUP BY</h>
+            <ul>
+                <li>The GROUP BY statement is often used with aggregate functions <text>(COUNT, MAX, MIN, SUM, AVG)</text> to group the result-set by one or more columns.</li>
+            </ul>
 
             <h id="limit-offset">LIMIT and OFFSET</h><br>
             <code><text>SELECT column 
@@ -83,14 +162,12 @@
             Then you limit by 18. Which means you consider records 9, 10, 11, 12, 13, 14, 15, 16....24, 25, 26 which are a total of 18 records.<br>
             <br>
 
-
-            <h id="ifnull">IFNULL</h><br>
-            <code><text>
-                IFNULL(expression, alt_value);
-            </text></code><br>
-            If expression is NOT NULL, the IFNULL() function returns expression, otherwise, return alt_value.<br>
-            <br>
-
+            <h id="ifnull">IFNULL</h>
+            <ul>
+                <li><code><text>IFNULL(expression, alt_value);</text></code></li>
+                <li>If expression is NOT NULL, the IFNULL() function returns expression, otherwise, return alt_value.</li>
+            </ul>
+            
 
             <h id="basic-ops">Basic Operations</h><br>
             <b>Insert:</b><br>
@@ -101,6 +178,8 @@
             <code><text>DELETE FROM table_name WHERE condition;</text></code><br>
             <b>Alter:</b><br>
             <code><text>ALTER TABLE table_name ADD column_name datatype;</text></code><br>
+            <code><text>ALTER TABLE Customers DROP COLUMN Email;</text></code>
+            <code><text>ALTER TABLE table_name MODIFY COLUMN column_name datatype;</text></code>
             <br>
 
 
@@ -126,6 +205,90 @@
             <code><text>SELECT column_name(s) FROM table_name AS alias_name;</text></code><br>
             <br>
 
+            <h id="select-into">SELECT...INTO</h>
+            <ul>
+                <li>copies data from one table into a new table.</li>
+                <li>Syntax: <br>
+                        <code><text>SELECT column1, column2, column3, ...<br>
+                        INTO newtable [IN externaldb]<br>
+                        FROM oldtable<br>
+                        WHERE condition;</text></code></li>
+            </ul>
+
+            <h id="insert-into">INSERT INTO...SELECT...</h>
+            <ul>
+                <li>copies data from one table and inserts it into another(existing) table.</li>
+                <li>Syntax: <br><code><text>
+                    INSERT INTO table2 (column1, column2, column3, ...)<br>
+                    SELECT column1, column2, column3, ...<br>
+                    FROM table1<br>
+                    WHERE condition;</text></code>
+                </li>
+            </ul>
+
+            <h id="procedure">Stored Procedure</h>
+            <ul>
+                <li>A stored procedure is a segment of declarative SQL statements stored inside the database catalog.</li>
+                <li>A stored procedure can be invoked by <text>triggers</text></li>
+                <li>Syntax: <br><text><code>
+                        DELIMITER //<br>
+                        CREATE PROCEDURE GetAllProducts()<br>
+                          BEGIN<br>
+                          SELECT *  FROM products;<br>
+                          END //<br>
+                        DELIMITER ;</code></text>
+                    <ul>
+                        <li><text><code>DELIMITER //</code></text>: changes the standard delimiter which is <text>semicolon( ; )</text> to another to pass the stored procedure to the server as a <text>whole</text>.</li>
+                        <li><text><code>CREATE PROCEDURE</code></text>: create a new stored procedure.</li>
+                        <li><text><code>BEGIN...END</code></text>: body of the stored procedure</li>
+                    </ul>
+                </li>
+                <li>Calling stored procedure: <text><code>CALL stored_procedure_name();</code></text></li>
+                <li>Variables:
+                    <ul>
+                        <li>Syntax: <br><text><code>DECLARE variable_name datatype(size) DEFAULT default_value;</code></text></li>
+                        <li><text><code>DECLARE</code></text>: specify variable name after DECLARE</li>
+                        <li><text><code>DEFAULT</code></text>: assign the variable a default value</li>
+                        <li>Example: <text><code>DECLARE total_sale INT DEFAULT 0;</code></text></li>
+                        <li>Assigning: <br><text><code>
+                                DECLARE total_count INT DEFAULT 0;<br>
+                                SET total_count = 10;
+                            </code></text></li>
+                    </ul>
+                </li>
+                <li>Parameters
+                    <ul>
+                        <li>Modes:
+                            <ul>
+                                <li><text><code>IN</code></text>
+                                    <ul>
+                                        <li>default mode</li>
+                                        <li>the calling program has to pass an argument to the stored procedure</li>
+                                        <li>the value of an IN parameter is <b>protected</b>. It means that even the value of 
+                                            the <text><code>IN</code></text> parameter is changed <text>inside</text> the stored procedure, its original value 
+                                            is <text>retained</text> after the stored procedure ends.</li>
+                                    </ul>
+                                </li>
+                                <li><text><code>OUT</code></text>
+                                    <ul>
+                                        <li>can be <text>changed</text> inside the stored procedure and its new value is <text>passed back</text> to the calling program</li>
+                                    </ul>
+                                </li>
+                                <li><text><code>INOUT</code></text>
+                                    <ul>
+                                        <li>combination of <text><code>IN</code></text>  and <text><code>OUT</code></text>  parameters</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Syntax: <br><code><text>
+                            CREATE PROCEDURE GetOfficeByCountry(IN countryName VARCHAR(255))
+                            </text></code><br>
+                            <text><code>CALL GetOfficeByCountry('USA');</code></text>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
        </div>
 
     </body>
