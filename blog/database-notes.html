@@ -54,6 +54,7 @@
        <div id="guide"><h><b>Topics Covered in this Page</b></h>
             <ol>
                 <li><a href="#Database-Normalization">Database Normalization</a></li>
+                <li><a href="#primary-key">Primary Key, Candidate Key</a></li>
                 <li><a href="#constraints">Constraints</a></li>
                 <li><a href="#order-by">ORDER BY</a></li>
                 <li><a href="#in">IN</a></li>
@@ -71,6 +72,8 @@
                 <li><a href="#select-into">SELECT...INTO</a></li>
                 <li><a href="#insert-into">INSERT INTO..SELECT...</a></li>
                 <li><a href="#procedure">Stored Procedure</a></li>
+                <li><a href="#trigger">Trigger</a></li>
+                <li><a href="#questions">Query Questions</a></li>
             </ol>
         </div>
 
@@ -81,6 +84,23 @@
                 <li><text>First Norm</text>: only singled value attribute</li>
                 <li><text>Second Norm</text>: No Partial Dependency (If proper subset of candidate key determines non-prime attribute, it is called partial dependency.)</li>
                 <li><text>Third Norm</text>: No Transitive Dependency.(When a non-prime attribute depends on other non-prime attributes rather than depending upon the prime attributes or primary key.)</li>
+            </ul>
+
+            <h id="primary-key">Primary Key, Candidate Key, Foreign Key</h>
+            <ul>
+                <li><b>Primary Key</b> vs. <b>Candidate Key</b>
+                    <ul>   
+                        <li>Both Primary and Candidate keys can uniquely identify records in a table on the database.</li>
+                        <li>Both Primary and Candidate keys have constraints UNIQUE and NOT NULL.</li>
+                        <li>An example of Primary key and Candidate key can be ID and SSN number in an Employee table, Since both can identify each employee uniquely they are candidate key and anyone can become the primary key.</li>
+                    </ul>
+                </li>
+                <li><b>Foreign Key</b>
+                    <ul>
+                        <li>A Foreign key is a column in one table which is the <text>primary key</text> on another table.</li>
+                        <li>Foreign key can be <text>duplicate</text> opposite to primary key which is always <text>unique</text>.</li>
+                    </ul>
+                </li>
             </ul>
 
             <h id="constraints">Constraints</h>
@@ -160,6 +180,18 @@
             </code><br>
             Start by reading the query from offset. First you offset by 8, which means you skip the first 8 results of the query. 
             Then you limit by 18. Which means you consider records 9, 10, 11, 12, 13, 14, 15, 16....24, 25, 26 which are a total of 18 records.<br>
+            <ul>Using <code><text>limit</text></code>:
+                <li><text>one</text> parameter: number of rows to be returned from the <text>beginning</text> of the result set.
+                    <ul>
+                        <li><code><text>SELECT * FROM Data LIMIT 3;</text></code>: retrieve the first three rows</li>
+                    </ul>
+                </li>
+                <li><text>two</text> parameter: the <text>first</text> is the <text>offset</text> and the <text>second</text> denotes the <text>count</text>.
+                    <ul>
+                        <li><code><text>SELECT * FROM Data LIMIT 1, 2;</text></code>: retrieve the rows 2-3(inclusive)</li>
+                    </ul>
+                </li>
+            </ul>
             <br>
 
             <h id="ifnull">IFNULL</h>
@@ -285,6 +317,39 @@
                             CREATE PROCEDURE GetOfficeByCountry(IN countryName VARCHAR(255))
                             </text></code><br>
                             <text><code>CALL GetOfficeByCountry('USA');</code></text>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h id="trigger">Trigger</h>
+            <ul>
+                <li>Create trigger:
+                    <ul>
+                        <li><br><code><text>
+                            CREATE TRIGGER trigger_name trigger_time trigger_event<br>
+                            ON table_name<br>
+                            FOR EACH ROW<br>
+                            BEGIN<br>
+                            ...<br>
+                            END;
+                            </text></code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h id="questions">Query Questions</h>
+            <ul>
+                <li>Copy a table with/without index
+                    <ul>
+                        <li>With index: <br><code><text>
+                            CREATE TABLE newtable LIKE oldtable;<br>
+                            INSERT newtable SELECT * FROM oldtable;</text></code>
+                        </li>
+                        <li>Without index, just structure and data:<br><code><text>
+                            CREATE TABLE tbl_new AS SELECT * FROM tbl_old;
+                            </text></code>
                         </li>
                     </ul>
                 </li>
