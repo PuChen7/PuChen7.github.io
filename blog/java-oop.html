@@ -7,11 +7,40 @@
         <!-- CSS links -->
         <link rel="stylesheet" href="../css/blog.css" />
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                // Add smooth scrolling to all links
+                $("a").on('click', function(event) {
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+                
+                        // Store hash
+                        var hash = this.hash;
+                
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top - ($('#nav-bar').height()+10)
+                        }, 800, function(){
+                    
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                        
+                        });
+                    } // End if
+                });
+            });                    
+        </script>
     </head>
 
     <body>
         <!-- Navigation Bar -->
-        <nav>
+        <nav id="nav-bar">
             <div class="tag">Java OOP Concepts | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
@@ -22,46 +51,43 @@
             </ul>
        </nav>
 
-       <div id="guide">
-            <h>Topics covered in this blog</h>
-           <ul>
-                <li><text>What is Object, Instance, Class?</text></li>
-                <li><text>Creating Instances of a Class</text></li>
-                <li><text>Constructors</text></li>
-                <li><text>static keyword</text></li>
-                <li><text>this keyword</text></li>
-                <li><text>final keyword</text></li>
-                <li><text>Inheritance</text></li>
-                <li><text>Method Overloading/Overriding</text></li>
-                <li><text>Polymorphism</text></li>
-                <li><text>Static Binding and Dynamic Binding</text></li>
-                <li><text>Abstract Class</text></li>
-                <li><text>Interface</text></li>
-            </ul>
+       <div id="guide"><h><b>Topics Covered in this Page</b></h>
+           <ol>
+                <li><a href="#object">What is Object, Instance, Class?</a></li>
+                <li><a href="constructor">Constructors</a></li>
+                <li><a>static keyword</a></li>
+                <li><a>this keyword</a></li>
+                <li><a>final keyword</a></li>
+                <li><a>Inheritance</a></li>
+                <li><a>Method Overloading/Overriding</a></li>
+                <li><a>Polymorphism</a></li>
+                <li><a>Static Binding and Dynamic Binding</a></li>
+                <li><a>Abstract Class</a></li>
+                <li><a>Interface</a></li>
+                <li><a href="#singleton">Singleton</a></li>
+            </ol>
        </div>
 
        <!-- Main body of the front page -->
        <div class="blog-content">
-           <h>What is Object, Instance, Class?</h>
-            <p>
-                Objects share two characteristics: 
-                They all have <text>state</text> and <text>behavior</text>.
-                <br>Instance is an instantiation of a class. 
-                <br>And a Class is a blueprint, 
-                template that defines object's state and behavior.
-                A class encapsulates the static attributes (data) and dynamic behaviors (operations that operate on the data) in a box.
-                <br>Class >> Object >> Instance (object is instance of class)
+           <h id="object">What is Object, Instance, Class?</h>
+            <ul>
+                <li>Objects share two characteristics: They all have <text>state</text> and <text>behavior</text>.</li>
+                <li>Instance is an instantiation of a class. </li>
+                <li>Class is a blueprint that defines object's state and behavior.</li>
+                <li>A class encapsulates the static attributes (data) and dynamic behaviors (operations that operate on the data) in a box.</li>
+                <li>Class >> Object >> Instance (object is instance of class)</li>
                 </p>
-            <br>
+            </ul>
 
-            <h>Creating Instances of a Class</h>
-                <p>
-                    1. Declare an instance identifier (instance name) of a particular class.<br>
-                    2. Construct the instance (i.e., allocate storage for the instance and initialize the instance) using the "new" operator.
-                </p>
-            <br>
+            <b>Creating Instances of a Class</b>
+                <ul>
+                    <li>Declare an instance identifier (instance name) of a particular class.</li>
+                    <li>Construct the instance (i.e., allocate storage for the instance and initialize the instance) using the "new" operator.</li>
+                </ul>
 
-            <h>Constructors</h>
+
+            <h id="constructor">Constructors</h>
                 <p>
                     A constructor is used to construct and initialize all the member variables.
                     The name of the constructor method is the same as the class name.<br>
@@ -368,6 +394,82 @@
             Composition and Aggregation are two forms of Association.<br>
             <b>Aggregation</b>: Has-A relationship. Unidirectional. Entities are <mark>independent</mark>.<br>
             <b>Composition</b>: restricted form of Aggregation. part-of relationship. Entities are <mark>dependent</mark>.<br>
+
+            <h id="singleton">Singleton</h>
+            <ul>
+                <li>A singleton class is a class that can have only one object (an instance of the class) at a time.</li>
+                <li>Purpose of using <text>Singleton</text>: 
+                    <ul>
+                        <li>control <text>object creation</text>, limiting the number of objects to <text>only one</text>.</li>
+                        <li>Singletons often control <text>access to resources</text>, such as database connections or sockets.
+                            <ul>
+                                <li>For example, if you have a license for only one connection for your database or your JDBC driver 
+                                    has trouble with multithreading, the Singleton makes sure that only one connection is made or that 
+                                    only one thread can access the connection at a time.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Implementation:
+                    <ul>
+                        <li>Make constructor as private.</li>
+                        <li>Write a static method that has return type object of this singleton class.</li>
+                        <li><b>Lazy Initialization</b> - used for single thread
+                            <ul>
+                                <li>Sample Singleton class:
+                                    <pre class="prettyprint">
+                                        public class Singleton {
+                                            private static Singleton singleton_instance = null;
+                                            
+                                            /* A private Constructor prevents any other
+                                                * class from instantiating.
+                                                */
+                                            private Singleton() { }
+                                            
+                                            /* Static 'instance' method */
+                                            public static Singleton getInstance( ) {
+                                                if(singleton_instance == null) {
+                                                    singleton_instance = new Singleton();
+                                                }
+                                                return singleton_instance;
+                                            }
+                                            
+                                            /* Other methods protected by singleton-ness */
+                                            protected static void demoMethod( ) {
+                                                System.out.println("demoMethod for singleton");
+                                            }
+                                        }
+                                    </pre>
+                                </li>
+                                <li>Creating a Singleton class object:
+                                    <pre class="prettyprint">
+                                        public class SingletonDemo {
+                                            public static void main(String[] args) {
+                                                Singleton tmp = Singleton.getInstance( );
+                                                tmp.demoMethod( );
+                                            }
+                                        }
+                                    </pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><b>Double Checked Locking</b>
+                            <pre class="prettyprint">
+                                public static ThreadSafeSingleton getInstanceUsingDoubleLocking(){
+                                    if(instance == null){
+                                        synchronized (ThreadSafeSingleton.class) {
+                                            if(instance == null){
+                                                instance = new ThreadSafeSingleton();
+                                            }
+                                        }
+                                    }
+                                    return instance;
+                                }
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             
        </div>
 

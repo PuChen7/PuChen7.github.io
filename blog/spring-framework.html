@@ -5,13 +5,42 @@
         <title>Pu Chen | Blog</title>
 
         <!-- CSS links -->
-        <link rel="stylesheet" href="../css/archives.css" />
+        <link rel="stylesheet" href="../css/blog.css" />
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                // Add smooth scrolling to all links
+                $("a").on('click', function(event) {
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+                
+                        // Store hash
+                        var hash = this.hash;
+                
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top - ($('#nav-bar').height()+10)
+                        }, 800, function(){
+                    
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                        
+                        });
+                    } // End if
+                });
+            });                    
+        </script>
     </head>
 
     <body>
         <!-- Navigation Bar -->
-        <nav>
+        <nav id="nav-bar">
             <div class="tag">Spring Framework | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
@@ -22,14 +51,18 @@
             </ul>
        </nav>
 
-       <!-- Main body of the front page -->
-       <div class="blog-content">
-           <br>
-            <b><text>Spring Framework Concepts</text></b><br>
+        <div id="guide"><h><b>Topics Covered in this Page</b></h>
+            <ol>
+                <li><a href="#spring-framework-modules">Spring Framework Modules</a></li>
+                <li><a href="#ioc">IoC Container</a></li>
+                <li><a href="#bean">Bean</a></li>
+            </ol>
+        </div>
 
-            <br>
+        <!-- Main body of the front page -->
+        <div class="blog-content">
 
-            <h>Spring is modular.</h>
+            <h id="spring-framework-modules">Spring Framework Modules</h>
             <ul>
                 <li>
                     <ul>
@@ -63,7 +96,7 @@
 
             <br>
 
-            <h>IoC (Inversion of Control) Container</h><br>
+            <h id="ioc">IoC (Inversion of Control) Container</h><br>
 
             <ul>
                 <li>The Spring container is at the <text>core</text> of the Spring Framework.</li>
@@ -89,7 +122,7 @@
 
             <br>
 
-            <h>Bean</h><br>
+            <h id="bean">Bean</h><br>
             <ul>
                 <li>The objects that form the backbone of your application and that are managed by the Spring IoC container are called <text>beans</text>. </li>
                 <li>These beans are created with the configuration metadata that you supply to the container.</li>
