@@ -68,13 +68,6 @@ h1{
   font-size: 40px;
 }
 
-.archivesContent{
-  position: static;
-  text-align: center;
-  padding-top: 30px;
-  line-height: 1.6;
-}
-
 #blog a{
   font-size: 20px;
   color: #3C588F;
@@ -87,6 +80,7 @@ h1{
 
 /*********** Blog ******************/
 .blog-content{
+  font-size: 18px;
   padding-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
