@@ -29,6 +29,7 @@
             <ol>
                 <li><a href="#spring-framework-modules">Spring Framework Modules</a></li>
                 <li><a href="#ioc">IoC Container</a></li>
+                <li><a href="#di">Dependency Injection</a></li>
                 <li><a href="#bean">Bean</a></li>
                 <li><a href="#flow">Flow of an HTTP request</a></li>
             </ol>
@@ -71,7 +72,6 @@
 
 
             <h id="ioc">IoC (Inversion of Control) Container</h><br>
-
             <ul>
                 <li>The Spring container is at the <text>core</text> of the Spring Framework.</li>
                 <li>The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction.</li>
@@ -90,6 +90,23 @@
                             </ul>
                         </li>
                         <li>The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.</li>
+                    </ul>
+                </li>
+                <li>Container Overview
+                    <ul>
+                        <li><text>org.springframework.context.ApplicationContext</text> interface represents the Spring IoC container and is responsible for <text>instantiating</text>, <text>configuring</text>, and <text>assembling</text> the beans.</li>
+                        <li>The container gets its instructions on what objects to instantiate, configure, and assemble by reading <text>configuration metadata</text> which is represented in <text>XML, Java Annotations, or Java code</text></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h id="di">Dependency Injection</h><br>
+            <ul>
+                <li>What is <text>dependency</text>: java class (A.java) may depend on one or more other java classes. These other java classes are known as dependencies of the java class A.</li>
+                <li>Ways to achieve DI:
+                    <ul>
+                        <li><text>constructor</text> based</li>
+                        <li><text>setter method</text> based</li>
                     </ul>
                 </li>
             </ul>
