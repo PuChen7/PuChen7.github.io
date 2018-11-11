@@ -28,9 +28,13 @@
         <div id="guide"><h><b>Topics Covered in this Page</b></h>
             <ol>
                 <li><a href="#spring-framework-modules">Spring Framework Modules</a></li>
-                <li><a href="#ioc">IoC Container</a></li>
-                <li><a href="#di">Dependency Injection</a></li>
-                <li><a href="#bean">Bean</a></li>
+                <li><a href="#spring-framework">Spring Framework</a>
+                    <ul>
+                        <li><a href="#ioc">IoC Container</a></li>
+                        <li><a href="#di">Dependency Injection</a></li>
+                        <li><a href="#bean">Bean</a></li>
+                    </ul>
+                </li>
                 <li><a href="#flow">Flow of an HTTP request</a></li>
             </ol>
         </div>
@@ -70,55 +74,66 @@
                 </li>
             </ul>
 
-
-            <h id="ioc">IoC (Inversion of Control) Container</h><br>
             <ul>
-                <li>The Spring container is at the <text>core</text> of the Spring Framework.</li>
-                <li>The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction.</li>
-                <li>The objects controlled by IoC container are called <text>beans</text></li>
-                <li>Container or framework control the objects or some portion of the program</li>
-                <li><text>Two</text> types of <text>containers</text> in Spring:
+                <li><h id="spring-framework">Spring Framework</h><br>
+                    <h2 id="ioc">IoC (Inversion of Control) Container</h2>
                     <ul>
-                        <li><text>Spring BeanFactory Container</text>
+                        <li>The Spring container is at the <text>core</text> of the Spring Framework.</li>
+                        <li>The container will create the objects, wire them together, configure them, and manage their complete life cycle from creation till destruction.</li>
+                        <li>The objects controlled by IoC container are called <text>beans</text></li>
+                        <li>Container or framework control the objects or some portion of the program</li>
+                        <li><text>Two</text> types of <text>containers</text> in Spring:
                             <ul>
-                                <li>This is the simplest container providing the basic support for DI and is defined by the org.springframework.beans.factory.BeanFactory interface.</li>
+                                <li><text>Spring BeanFactory Container</text>
+                                    <ul>
+                                        <li>This is the simplest container providing the basic support for DI and is defined by the org.springframework.beans.factory.BeanFactory interface.</li>
+                                    </ul>
+                                </li>
+                                <li><text>Spring ApplicationContext Container</text>
+                                    <ul>
+                                        <li>This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners.</li>
+                                    </ul>
+                                </li>
+                                <li>The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.</li>
                             </ul>
                         </li>
-                        <li><text>Spring ApplicationContext Container</text>
+                        <li>Container Overview
                             <ul>
-                                <li>This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners.</li>
+                                <li><text>org.springframework.context.ApplicationContext</text> interface represents the Spring IoC container and is responsible for <text>instantiating</text>, <text>configuring</text>, and <text>assembling</text> the beans.</li>
+                                <li>The container gets its instructions on what objects to instantiate, configure, and assemble by reading <text>configuration metadata</text> which is represented in <text>XML, Java Annotations, or Java code</text></li>
                             </ul>
                         </li>
-                        <li>The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.</li>
                     </ul>
-                </li>
-                <li>Container Overview
+
+                    <h2 id="di">Dependency Injection</h2>
                     <ul>
-                        <li><text>org.springframework.context.ApplicationContext</text> interface represents the Spring IoC container and is responsible for <text>instantiating</text>, <text>configuring</text>, and <text>assembling</text> the beans.</li>
-                        <li>The container gets its instructions on what objects to instantiate, configure, and assemble by reading <text>configuration metadata</text> which is represented in <text>XML, Java Annotations, or Java code</text></li>
+                        <li>What is <text>dependency</text>: java class (A.java) may depend on one or more other java classes. These other java classes are known as dependencies of the java class A.</li>
+                        <li>Ways to achieve DI:
+                            <ul>
+                                <li><text>constructor</text> based</li>
+                                <li><text>setter method</text> based</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
 
-            <h id="di">Dependency Injection</h><br>
-            <ul>
-                <li>What is <text>dependency</text>: java class (A.java) may depend on one or more other java classes. These other java classes are known as dependencies of the java class A.</li>
-                <li>Ways to achieve DI:
+                    <h2 id="bean">Bean</h2>
                     <ul>
-                        <li><text>constructor</text> based</li>
-                        <li><text>setter method</text> based</li>
+                        <li>The objects that form the backbone of your application and that are managed by the Spring IoC container are called <text>beans</text>. </li>
+                        <li>These beans are created with the configuration metadata that you supply to the container.</li>
+                    </ul>
+
+                    <h2 id="annotations">Annotations</h2>
+                    <ul>
+                        <li><b>@Autowired</b>
+                            <ul>
+                                <li>applied on fields, setter methods, and constructors</li>
+                                <li></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
-
-            <br>
-
-            <h id="bean">Bean</h><br>
-            <ul>
-                <li>The objects that form the backbone of your application and that are managed by the Spring IoC container are called <text>beans</text>. </li>
-                <li>These beans are created with the configuration metadata that you supply to the container.</li>
-            </ul>
-
+            
             <h id="flow">Flow of an HTTP request</h>
             <ul>
                 <li>Client sends an HTTP request to a specific URL</li>

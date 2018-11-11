@@ -6,20 +6,104 @@
 
         <!-- CSS links -->
         <link rel="stylesheet" href="../css/blog.css" />
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
 
-        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link rel="stylesheet" href="../css/styles/default.css">
+        <script src="../css/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
 
-    <body ng-app = "myapp">
-        <div>
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="tag">Angular | Pu Chen</div>
             <ul>
-                <li ng-repeat></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../archives.html">Archives</a></li>
+                <li><a href="../aboutme.html">About Me</a></li>
+                <li><a href="https://github.com/PuChen7">Projects</a></li>
+                <li><a class="active" href="../index.html">Home</a></li>
             </ul>
-        </div>
-    </body>
+       </nav>
 
-    <script>
-        var app = angular.module("myApp", []);
-    </script>
+       <!-- Main body of the front page -->
+       <div class="blog-content">
+            <h id="view-controller">View and Controller</h>
+            <ul>
+                <li>A <text>view</text> in AngularJS is the HTML after it has been compiled by AngularJS</li>
+                <li>A <text>controller</text> is a Javascript object that contains methods and properties.</li>
+                <li>The glue between the view and controller is <text>scope</text></li>
+                <li>The controller is responsible for exposing methods and properties to the view by <text>attaching them to scope</text></li>
+                <li>a <text>digest cycle</text> in AngularJS is what keeps the view and controller <text>synchronized</text></li>
+                <li>Digest Cycle
+                    <ul>
+                        <li>How does AngularJS know when something has changed and it's time to update? <text>--> Dirty Checking</text></li>
+                    </ul>
+                </li>
+                <li><text>controller-as</text> syntax
+                    <ul>
+                        <li>Example of <b>NOT</b> using <text>controller-as</text> syntax:
+                            <pre><code class="html">
+                                &lt;div ng-app=&quot;app&quot; ng-controller=&quot;SiteController&quot;&gt;
+                                &lt;!-- we are pretty sure we are getting the title from the SiteController --&gt;
+                                &lt;h1&gt;{{title}}&lt;/h1&gt;
+                                    &lt;div ng-controller=&quot;PersonController&quot;&gt;                                    
+                                        &lt;!-- is this the title from SiteController or PersonController? 
+                                        is there even a title in both? --&gt;
+                                        &lt;h2&gt;{{title}}&lt;/h2&gt;                                    
+                                        &lt;div ng-repeat=&quot;person in PersonCtrl.people&quot;&gt;                                    
+                                            &lt;span&gt;{{person.name}}&lt;/span&gt;                                        
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            </code></pre>
+                        </li>
+                        <li>Example of using <text>controller-as</text> syntax:
+                            <pre><code class="javascript">
+                                // site.controller.js:
+                                (function() {
+                                    'use strict';
+                                    angular.module('app').controller('SiteController', SiteController);
+                                
+                                    // no need to inject $scope because we don't need it
+                                    SiteController.$inject = [];
+                                
+                                    function SiteController() {
+                                        // assigning this to a loacal variable makes it easier to 
+                                        // declare properties and methods in the controller
+                                        var vm = this;
+                                    
+                                        // declare our title on this
+                                        vm.title = "Welcome!";
+                                    }
+                                })();
+                                
+                                // other.controller.js:
+                                (function() {
+                                    'use strict';
+                                    angular.module('app').controller('OtherController', OtherController);
+                                    function OtherController() {
+                                        var vm = this;
+                                        vm.title = "Other title!";
+                                    }
+                                })();
+                            </code></pre>
+
+                            <pre><code class="html">
+                                &lt;div ng-app=&quot;app&quot; ng-controller=&quot;SiteController as SiteCtrl&quot;&gt;
+                                    &lt;!-- we can be sure we are getting the title from the SiteController --&gt;
+                                    &lt;h1&gt;{{SiteCtrl.title}}&lt;/h1&gt;
+                                    &lt;div ng-controller=&quot;OtherController as OtherCtrl&quot;&gt;
+                                        &lt;!-- we can be sure we are getting the title from the OtherCtrl --&gt;
+                                        &lt;h2&gt;{{OtherCtrl.title}}&lt;/h2&gt;
+                                    &lt;/div&gt;                                
+                                &lt;/div&gt;
+                            </code></pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+       </div>
+
+    </body>
 </html>
