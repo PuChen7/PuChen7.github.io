@@ -174,7 +174,47 @@
 
             <h id="services">Services</h>
             <ul>
-                <li></li>
+                <li>a service is a function, or object, that is available for, and limited to, your AngularJS application.</li>
+                <li>A service is typically a <text>class with a narrow, well-defined purpose</text>. It should do something <text>specific</text> and do it well.</li>
+                <li>Services provide a means for keeping data around for the lifetime of an application while they also can be used across different controllers in a consistent manner.</li>
+                <li>Different types of services:
+                    <ul>
+                        <li><b>module.value</b>: Good for storing simple values that may need to change during runtime.
+                            <ul>
+                                <li>take two parameters: the name of the service and the value that is to be returned when the value service is instantiated.</li>
+                                <li>Example:
+                                    <pre><code class="javascript">
+                                        myModule.value('STORY_TYPES', [
+                                            {name: 'Feature'},
+                                            {name: 'Enhancement'},
+                                            {name: 'Bug'},
+                                            {name: 'Spike'}
+                                        ]);
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><b>module.constant</b>: Good for storing simple values that will never need to change.
+                            <ul>
+                                <li>can't be modified during runtime</li>
+                                <li>Example of a remote url (encapsulate back-end choice into a single place and pass it around as needed):
+                                    <pre><code class="javascript">
+                                        angular.module('Angello.Common')
+                                        .constant('CURRENT_BACKEND', 'firebase');
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><b>module.service</b>: Creates a service using a constructor method. This is good for developers who prefer OOP-style programming and like using the this keyword.
+                            <ul>
+                                <li>When you define a service using module.service, the instance is returned via a con- structor function.</li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li><b>module.factory</b>: Creates a service using a constructor function. Developers using the Revealing Module pattern will be at home with this style.</li>
+                        <li><b>module.provider</b>: Providesthemostcontroloverdefiningyourservicebutismorecomplexandverbose. Good for modifying behavior of a service while the application is being configured.</li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
