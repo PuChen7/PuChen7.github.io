@@ -284,7 +284,155 @@
 
             <h id="directives">Directives</h>
             <ul>
-                <li></li>
+                <li>directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) 
+                    to attach a specified behavior to that DOM element (e.g. via event listeners), or even to transform the DOM element and its children.
+                </li>
+                <li>Directives generally have three parts:
+                    <ul>
+                        <li>link function</li>
+                        <li>controller function</li>
+                        <li>directive definition object</li>
+                    </ul>
+                </li>
+                <li>Four types
+                    <ul>
+                        <li>As elements: <code>&lt;date-picker&gt;&lt;/date-picker&gt;</code></li>
+                        <li>As attributes: <code>&lt;input type="text" date-picker/&gt;</code></li>
+                        <li>As classes: <code>&lt;input type="text" class="date-picker"/&gt;</code></li>
+                        <li>As comments: <code>&lt;!--directive:date-picker--&gt;</code></li>
+                    </ul>
+                </li>
+                <li>Simple directive
+                    <ul>
+                        <li>
+                            <pre><code class="javascript">
+                                angular.module('myApp', []).directive('helloWorld', function() {
+                                    return {
+                                        restrict: 'AEC',
+                                        replace: true,
+                                        template: '&lt;h3&gt;Hello, World!&lt;/h3&gt;'
+                                    }; 
+                                });
+                            </code></pre>
+                        </li>
+                        <li>How to invoke:
+                            <ul>
+                                <li> Use in HTML (<text>Need to use <b>hello-world</b> in HTML to reference <b>helloWorld</b></text>)
+                                    <pre><code class="html">
+                                        &lt;body ng-app=&quot;myApp&quot;&gt;
+                                            &lt;hello-world&gt;&lt;/hello-world&gt;
+                                        &lt;/body&gt;
+                                    </code></pre>
+                                </li>
+                                <li>Use as attribute ( if you want to use <text>hello-world</text> to invoke your directive in your templates, you need to name it <text>helloWorld</text> when you define it in JavaScript.)
+                                    <pre><code class="html">
+                                        &lt;body ng-app=&quot;myApp&quot;&gt;
+                                            &lt;div hello-world&gt;&lt;/div&gt;
+                                        &lt;/body&gt;
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Configuration Options
+                            <ul>
+                                <li><text>restrict</text>: This provides a way to specify how a directive should be used in HTML
+                                    <ul>
+                                        <li><text>A</text>: Attribute</li>
+                                        <li><text>E</text>: Element</li>
+                                        <li><text>C</text>: Class</li>
+                                        <li><text>M</text>: Comment</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Link Functions
+                    <ul>
+                        <li>Inside the link function you can set models on the scope object, watch models for changes, and add event listeners to DOM elements.</li>
+                        <li>Example of <text>link function</text>
+                            <pre><code class="javascript">
+                                &lt;body ng-app=&quot;myApp&quot;&gt; 
+                                &lt;div ng-controller=&quot;MainController&quot;&gt;
+                                    &lt;input type=&quot;text&quot; ng-model=&quot;message&quot; placeholder=&quot;Enter message&quot; /&gt; 
+                                    &lt;hello-world&gt;&lt;/hello-world&gt;
+                                &lt;/div&gt;
+                                &lt;/body&gt;
+
+                                &lt;script&gt;
+                                    angular.module('myApp', []);
+                                    angular.module('myApp')
+               controller--->       .controller('MainController', function($scope) {
+                                        $scope.message = 'I love AngularJS';
+                                    }) 
+               directive--->        .directive('helloWorld', function() {
+                                        return {
+                                            restrict: 'AEC',
+                                            replace: true,
+                                            template: '&lt;p ng-click="clearMessage()"&gt;Hello, World!{{message}} &lt;/p&gt;',
+            link function--->               link: function(scope, elem, attrs) {
+                                                scope.$watch('message', function(value) {
+                                                    console.log('Message Changed!');
+                                                });
+                                                scope.clearMessage = function() {
+                                                    scope.message = '';
+                                                }
+                                                elem.bind('mouseover', function() {
+                                                    elem.css('cursor', 'pointer');
+                                                });
+                                            } 
+                                        }
+                                    });
+                                &lt;/script&gt;
+                            </code></pre>
+                        </li>
+                        <li><text>link function</text> takes three parameters:
+                            <ul>
+                                <li><text>scope</text>: The scope object for the directive. By default this is same as the <text>parent's</text> scope. 
+                                    For instance, if you have ng-controller in the markup and our directive is used inside it, then the directive will use the 
+                                    parent controller's scope.
+                                </li>
+                                <li><text>elem</text>: This is the element on which our directive is applied.</li>
+                                <li><text>attrs</text>: This is a map containing the attributes and their values that are applied to the directive in HTML.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Changing a directive's scope
+                    <ul>
+                        <li>By default, a directive gets its <text>parent's</text> scope.</li>
+                        <li>If we want to make some properties private, we can have two options: <text>child scope</text> and <text>isolated scope</text>.</li>
+                        <li>The scope can be configured with the scope property of the <text>directive definition object</text>.</li>
+                        <ul>
+                            <li>Example: Give the directive a <text>new child scope</text> that <text>inherits from the parent scope</text>.
+                                <pre><code class="javascript">
+                                    angular.module('myApp').directive('helloWorld', function() {
+                                        return {
+                                            scope: true,  // use a child scope that inherits from parent
+                                            restrict: 'AE',
+                                            replace: true,
+                                            template: '&lt;h3&gt;Hello, World!&lt;/h3&gt;'
+                                        }; 
+                                    });
+                                </code></pre>
+                            </li>
+                            <li>Example: This directive uses a <text>new isolated scope</text> that <text>doesn't inherit</text> from its parent.
+                                <pre><code class="javascript">
+                                    angular.module('myApp').directive('helloWorld', function() {
+                                        return {
+                                            scope: {},  // use a new isolated scope
+                                            restrict: 'AE',
+                                            replace: true,
+                                            template: '&lt;h3&gt;Hello, World!&lt;/h3&gt;'
+                                        }; 
+                                    });
+                                </code></pre>
+                                Isolated scopes are good when we want to create <text>reusable components</text>. By isolating the scope we guarantee that the directive is <text>self-contained</text> 
+                                and can be easily plugged into an HTML app. This protects the <text>parent scope from getting polluted</text>, as it's <text>not accessible inside the directive</text>.
+                            </li>
+                        </ul>
+                    </ul>
+                </li>
             </ul>
         </div>
 
