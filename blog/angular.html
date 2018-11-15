@@ -493,10 +493,158 @@
                                     <li></li>
                                 </ul>
                             </li>
+                            <li>Useful resources about binding
+                                <ul>
+                                    <li><a href="http://blog.krawaller.se/posts/dissecting-bindings-in-angularjs/">http://blog.krawaller.se/posts/dissecting-bindings-in-angularjs/</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </li>
-                <li>Transclusion</li>
+                <li>Transclusion
+                    <ul>
+                        <li>Use <text>transclude</text> when you want to preserve the contents of an element when you're using a directive.</li>
+                        <li>the following code will finally <text>replace</text> "some content here" with "the template":
+                            <pre><code class="html">
+                                &lt;!-- HTML --&gt;
+                                &lt;div foo&gt;
+                                    some content here
+                                &lt;/div&gt;
+
+                                &lt;!-- JavaScript --&gt;
+                                .directive("foo", function() {
+                                    return {
+                                        template: "&lt;div&gt;the template&lt;/div&gt;"
+                                    };
+                                })
+                            </code></pre>
+                            Final result:
+                            <pre><code class="html">
+                                &lt;div foo&gt;
+                                    the template
+                                &lt;/div&gt;
+                            </code></pre>
+                        </li>
+                        <li>Using <text>transclude</text> to preserve the original markup
+                            <pre><code class="html">
+                                &lt;!-- HTML --&gt;
+                                &lt;div foo&gt;
+                                    some content here
+                                &lt;/div&gt;
+
+                                &lt;!-- JavaScript --&gt;
+                                .directive("foo", function() {
+                                    return {
+                                        transclude: true,
+                                        template: "&lt;div&gt;the template&lt;/div&gt;&lt;div ng-transclude&gt;&lt;/div&gt;"
+                                    };
+                                })
+                            </code></pre>
+                            Final result:
+                            <pre><code class="html">
+                                &lt;div foo&gt;
+                                    the template
+                                    some content here
+                                &lt;/div&gt;
+                            </code></pre>
+                        </li>
+                        <li><text>ng-transclude</text> is used to define where external content will be placed in a directive’s template.</li>
+                        <li>Useful resources about <text>transclude</text>: 
+                            <ul>
+                                <li><a href="https://www.accelebrate.com/blog/angularjs-transclusion-part-1/">https://www.accelebrate.com/blog/angularjs-transclusion-part-1/</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h id="modules">Modules</h>
+            <ul>
+                <li>module is basically a <text>container</text> that groups together different components of your application under a common name.(reuseable)</li>
+                <li>To create a module: <code>angular.module()</code> function<br>
+                    The first argument to the function is the <text>module name</text>. The second argument is an array that specifies the <text>additional modules</text> upon which this module depends.
+                </li>
+                <li>Example:
+                    <pre><code class="javascript">
+                        angular.module('firstModule',[]); //defines a module with no dependencies
+                        angular.module('firstModule',['moduleA','moduleB']); //defines a module with 2 dependencies
+                    </code></pre>
+                </li>
+                <li>think of <text>angular.module()</text> as a global API for <text>creating or retrieving</text> modules and registering components. </li>
+                <li>Example of attaching <text>controller</text> and <text>directive</text>
+                    <pre><code class="javascript">
+                        var firstModule=angular.module('firstModule',[]); //define a module
+                        firstModule.controller('FirstController',function($scope){ // register a controller
+                            //your rocking controller
+                        });
+                        firstModule.directive('FirstDirective',function(){ // register a directive
+                            return {
+                            }; 
+                        });
+
+                        // Having one parameter in angular.module is used for retrieving a module. see following
+                        angular.module('firstModule',[]); //specify dependency list here
+                        angular.module('firstModule').controller('FirstController' ➥,function($scope){ //just use it
+                            //your rocking controller
+                        });
+                        angular.module('firstModule').directive('FirstDirective',function(){
+                            return {
+                            }; 
+                        });
+
+                        // or even simpler
+                        angular.module('firstModule',[])
+                        .controller('FirstController' ➥,function($scope){
+                            //your rocking controller
+                        })
+                        .directive('FirstDirective',function(){ //your directive
+                            return {
+                            }; 
+                        });
+                    </code></pre>
+                </li>
+                <li>Module best practice
+                    <ul>
+                        <li>modularization by <text>layers</text>
+                            <ul>
+                                <li>app.js</li>
+                                <li>controllers.js</li>
+                                <li>directives.js</li>
+                                <li>filters.js</li>
+                                <li>services.js</li>   
+                            </ul>
+                        </li>
+                        <li>modularization by <text>features</text>
+                            <ul>
+                                <li>According to different features</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h id="controllers">Controllers</h>
+            <ul>
+                <li>The task of a controller is to augment the <text>scope</text> by attaching <text>models and functions</text> to it that are subsequently accessed in the <text>view</text></li>
+                <li>Example:
+                    <pre><code class="javascript">
+                        angular.module('myApp',[]).controller('GreetingController', function($scope){
+                            $scope.now=new Date(); //set the model 'now' on scope
+                            $scope.greeting='Hello';    //set the name model on scope
+                        });
+                    </code></pre>
+                    The first parameter is controller's name. The second is the constructor function that'll be called when encounter ng-controller.
+                </li>
+                <li>Controller is dependent on <text>scope</text>.</li>
+                <li>When AngularJS finds ng-controller='GreetingController'in HTML, it creates a <text>new scope</text> for your controller and passes that as an argument 
+                    to the constructor function while instantiating the controller. This is called <text>Dependency Injection</text></li>
+                <li>Controller should <b>not</b> do:
+                    <ul>
+                        <li>No DOM manipulation. This should be done in directives.</li>
+                        <li>Don't format model values in controllers. Filters exist for this purpose.</li>
+                        <li>Don't write repeatable code in controllers. Rather encapsulate them in services.</li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </body>
