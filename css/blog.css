@@ -74,6 +74,8 @@ h2{
   font-size: 20px;
 }
 
+
+
 #blog a{
   font-size: 20px;
   color: #3C588F;
@@ -132,11 +134,9 @@ text{
   text-decoration: none;
 }
 
-b{
-}
-
 code{
   font-size: 15px;
+  
 }
 
 .footer {

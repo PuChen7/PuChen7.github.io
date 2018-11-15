@@ -401,6 +401,13 @@
                 <li>Changing a directive's scope
                     <ul>
                         <li>By default, a directive gets its <text>parent's</text> scope.</li>
+                        <li>Three ways to define a <text>scope</text> of a directive
+                            <ul>
+                                <li><text>scope: false</text>: Angular <text>default</text>. The directive's scope is exactly the one of its parent scope (parentScope).</li>
+                                <li><text>scope: true</text>: Angular creates a scope for this directive. The scope inherits from parentScope.</li>
+                                <li><text>scope: {...}</text>: isolated scope.</li>
+                            </ul>
+                        </li>
                         <li>If we want to make some properties private, we can have two options: <text>child scope</text> and <text>isolated scope</text>.</li>
                         <li>The scope can be configured with the scope property of the <text>directive definition object</text>.</li>
                         <ul>
@@ -432,9 +439,65 @@
                             </li>
                         </ul>
                     </ul>
+                    <li>Binding Between Parent Scope and Isolated Scope Models
+                        <ul>
+                            <li>The topic about using symbols <text>@, = and &</text> are talking about scenarios using <text>isolatedScope</text>.</li>
+                            <li>Using @ For One-Way Binding: @ simply <text>passes the property from parentScope to isolatedScope</text>.
+                                <ul>
+                                    <li>
+                                        <pre><code class="html">
+                                            &lt;body ng-app=&quot;myApp&quot;&gt; 
+                                                &lt;div ng-controller=&quot;MainController&quot;&gt;
+                                                    &lt;input type=&quot;text&quot; ng-model=&quot;message&quot; placeholder=&quot;Enter message&quot; /&gt; &lt;!-- if message changed at here, message-attr also changes --&gt;
+                                                    &lt;hello-world message-attr=&quot;{{message}}&quot;&gt;&lt;/hello-world&gt; &lt;!-- if message-attr changed, message above does not change due to one-way binding --&gt;
+                                                &lt;/div&gt;
+                                            &lt;/body&gt;
+
+                                            &lt;script&gt;
+                                                angular.module('myApp', []);
+                                                angular.module('myApp')
+                                                .controller('MainController', function($scope) {
+                                                    $scope.message = 'I love AngularJS';
+                                                }) 
+                                                .directive('helloWorld', function() {
+                                                    return {
+                                                        restrict: 'AEC',
+                                                        scope: {
+                                                            message:'@messageAttr'  // isolated scope property: message, should bind to messageAttr
+                                                        },
+                                                        replace: true,
+                                                        template: '&lt;p ng-click="clearMessage()"&gt;Hello, World!{{message}} &lt;/p&gt;',
+                                                        link: function(scope, elem, attrs) {
+                                                            scope.$watch('message', function(value) {
+                                                                console.log('Message Changed!');
+                                                            });
+                                                            scope.clearMessage = function() {
+                                                                scope.message = '';     // this scope is isolated scope, which will empty message-attr
+                                                            }
+                                                            elem.bind('mouseover', function() {
+                                                                elem.css('cursor', 'pointer');
+                                                            });
+                                                        } 
+                                                    }
+                                                });
+                                            &lt;/script&gt;
+                                        </code></pre>
+                                    </li>
+                                    <li>We call this <text>one-way binding</text> because with this technique you can only pass <text>strings</text> to the attribute (using expressions, {{}} 
+                                        or just static values). When the <text>parent scope property changes</text>, your <text>isolated scope model also changes</text>. However, the <text>reverse is 
+                                        not true</text>! You can't change the <text>parent scope</text> model by manipulating the <text>isolated scope</text> model.</li>
+                                </ul>
+                            </li>
+                            <li>Using = For Two-Way Binding: means any modification in <text>childScope</text> will also update the value in <text>parentScope</text>, and vice versa. (for both primitives and objects)
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </li>
+                <li>Transclusion</li>
             </ul>
         </div>
-
     </body>
 </html>
