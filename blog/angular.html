@@ -646,6 +646,69 @@
                     </ul>
                 </li>
             </ul>
+
+            <h id="scope">Scope</h>
+            <ul>
+                <li>a <text>scope object</text> is useful for holding <text>model values</text></li>
+                <li>Every AngularJS application has at least one scope called <text>$rootScope</text>. This is created as a result of attaching the <text>ng-app</text> directive to any HTML element</li>
+                <li>when you attach <text>ng-controller</text> to any element, it creates a <text>new child scope</text>, which prototypally <text>inherits from the $rootScope</text>.</li>
+                <li>Example(includes $watch):
+                    <pre><code class="html">
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html ng-app=&quot;myApp&quot;&gt;
+                            &lt;head&gt;
+                                &lt;meta charset=&quot;utf-8&quot; /&gt;
+                                &lt;title ng-bind=&quot;title&quot;&gt;&lt;/title&gt;
+                                &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js&quot;&gt;&lt;/script&gt;
+                            &lt;/head&gt;
+                            &lt;body ng-controller=&quot;SiteController&quot;&gt;
+                                &lt;span&gt;{{publisher}} excels in {{type}} books&lt;/span&gt;
+                                &lt;div ng-controller=&quot;BookController&quot;&gt;
+                                    &lt;h3&gt;Some of the popular books from {{publisher}}&lt;/h3&gt;
+                                    &lt;ul&gt;
+                                        &lt;li ng-repeat=&quot;book in books&quot;&gt;
+                                            {{book}} &lt;a href=&quot;#&quot; ng-click=&quot;addToWishList(book)&quot;&gt;Add to Wish List&lt;/a&gt;
+                                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/body&gt;
+                        
+                            &lt;script&gt;
+                                angular.module('myApp', ['myApp.controllers']);
+                        
+                                angular.module('myApp').run(function($rootScope){
+                                    $rootScope.title = 'Famous Books';
+                                    $rootScope.name = &quot;Root Scope&quot;;
+                                });
+                        
+                                angular.module('myApp.controllers',[]).controller('SiteController', function($scope){
+                                    $scope.publisher = 'SitePoint';
+                                    $scope.type = &quot;Web Development&quot;;
+                                    $scope.name = &quot;Scope for SiteController&quot;;
+                                });
+                        
+                                angular.module('myApp.controllers').controller('BookController', function($scope){
+                                    $scope.books = ['Jump Start HTML5','Jump Start CSS','Jump Start Responsive Web Design'];
+                                    $scope.name = &quot;Scope for BookController&quot;;
+                        
+                                    $scope.addToWishList = function(book){
+                                        $scope.wishListCount++;
+                                    };
+                                    $scope.wishListCount = 2;
+                                    $scope.$watch('wishListCount',function(newValue,oldValue){
+                                        console.log(&quot;old value is &quot; + oldValue);
+                                        console.log('called ' + newValue + ' times');
+                                        if(newValue == 4){
+                                            alert('Great! You have 2 items in your wish list. Time to buy what you love. ');
+                                        } 
+                                    });
+                                });
+                            &lt;/script&gt;
+                        &lt;/html&gt;                            
+                    </code></pre>
+                </li>
+                <li>$watch</li>
+            </ul>
         </div>
     </body>
 </html>
