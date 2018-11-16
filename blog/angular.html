@@ -770,6 +770,37 @@
                     </ul>
                 </li>
             </ul>
+
+            <h id="broadcast">broadcasting and Emitting Events</h>
+            <ul>
+                <li>AngularJS supports two types of event <text>propagation</text>:
+                    <ul>
+                        <li><text>Emitting</text> the event <text>upwards</text> in the scope hierarchy.</li>
+                        <li><text>Broadcasting</text> the event <text>downwards</text> in the scope hierarchy.</li>
+                    </ul>
+                </li>
+                <li>$emit()
+                    <ul>
+                        <li><code>$scope.$emit(name,args)</code>
+                            <ul>
+                                <li>name: name of the event that is being emitted.</li>
+                                <li>args: arguments needed to pass to event listeners. Typically you pass the data which should be <text>shared</text> with the listeners here.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>$broadcast()
+                    <ul>
+                        <li><code>$scope.$broadcast(name,args)</code></li>
+                        <li>Same as the &emit(), except the event propagates downwards in the scope hierarchy to all the child scopes.</li>
+                    </ul>
+                </li>
+                <li>$on()
+                    <ul>
+                        <li>It listen on events of a given type. It can catch the event dispatched by $broadcast and $emit.</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </body>
 </html>
