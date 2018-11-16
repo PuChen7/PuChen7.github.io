@@ -15,7 +15,7 @@
 
     <body>
         <!-- Navigation Bar -->
-        <nav>
+        <nav id="nav-bar">
             <div class="tag">Angular | Pu Chen</div>
             <ul>
                 <li><a href="../contact.html">Contact</a></li>
@@ -696,8 +696,6 @@
                                     };
                                     $scope.wishListCount = 2;
                                     $scope.$watch('wishListCount',function(newValue,oldValue){
-                                        console.log(&quot;old value is &quot; + oldValue);
-                                        console.log('called ' + newValue + ' times');
                                         if(newValue == 4){
                                             alert('Great! You have 2 items in your wish list. Time to buy what you love. ');
                                         } 
@@ -707,11 +705,40 @@
                         &lt;/html&gt;                            
                     </code></pre>
                 </li>
+                <li>Digest Cycle
+                    <ul>
+                        <li>This cycle can be considered as a <text>loop</text>, during which AngularJS checks if there are any changes to all the variables watched by all 
+                            the <text>$scopes</text>. So if you have <text>$scope.myVar</text> defined in your controller and this variable was marked for <text>being watched</text>
+                            , then you are implicitly telling AngularJS to monitor the changes on myVar in each iteration of the loop.
+                        </li>
+                        <li>Is everything attached to $scope being watched?
+                            <ul>
+                                <li>No. Because of performance issues.</li>
+                            </ul>
+                        </li>
+                        <li>There are two ways of declaring a $scope variable as being watched.
+                            <ul>
+                                <li><b>Case 1</b>: By using it in your template via the expression <text>&lt;span&gt;{{myVar}}&lt;/span&gt;</text></li>
+                                <li><b>Case 2</b>: By adding it manually via the <text>$watch</text> service</li>
+                            </ul>
+                        </li>
+                        <li><text>Case 1</text>: suppose we write: <code>&lt;input type="text" ng-model="name"/&gt;</code>
+                            <ul>What happen behind the scene: 
+                                <li>The directive <text>ng-model</text> registers a <text>keydown listener</text> with the input field. text changes --(fire)--> keydown event --(call)--> corresponding listener</li>
+                                <li>Inside the <text>keydown</text> listener the directive assigns the new value of input(in this case, name) field to the scope model specified in ng-model. This code is wrapped inside <text>$apply()</text> call.</li>
+                                <li>After $apply() ends the <text>digest cycle</text> starts in which the watchers are called. If you have an expression <text>{{name}}</text> in the view it has already set up a <text>watcher</text> on scope model name. So, in digest cycle this watcher gets called and the listener function executes with the <text>newValue</text> and <text>oldValue</text> as arguments.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
                 <li>$watch
                     <ul>
                         <li><text>$watch()</text> is used to register a watcher.</li>
                         <li>Basic function structure: <code>function(watchExp, listener, objectEquality, prettyPrintExpression)</code>
                             <ul>
+                                <li><text>watchExp</text>: The expression being watched. It can be a function or a string, it is evaluated at every digest cycle.</li>
+                                <li><text>listener</text>: A callback, fired when the watch is first set, and then each time that during the digest cycle that a change for watchExp‘s value is detected.</li>
+                                <li>objectEquality: this is true the watcher will perform a deep comparison.</li>
                                 <li></li>
                             </ul>
                         </li>
@@ -719,13 +746,29 @@
                         <li>Useful resources about <text>$watch</text>
                             <ul>
                                 <li><a href="https://www.sitepoint.com/mastering-watch-angularjs/">https://www.sitepoint.com/mastering-watch-angularjs/</a></li>
+                                <li><a href="http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html">http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li>$watchCollection</li>
-                <li>$apply</li>
-                <li>$digest</li>
+                <li>$apply
+                    <ul>
+                        <li>The $scope.$apply() function is used to execute some code, and then call $scope.$digest() after that, so all watches are checked and the 
+                            corresponding watch listener functions are called. The $apply() function is useful when integrating AngularJS with other code.
+                        </li>
+                        <li><text>$apply</text> lets you start the digestion cycle explicitly.</li>
+                        <li>Calling <text>$apply()</text> will <text>automatically</text> trigger a <text>$digest</text> on <text>$rootScope</text> which subsequently visits <text>all the child scopes</text> calling the watchers.</li>
+                    </ul>
+                </li>
+                <li>$digest
+                    <ul>
+                        <li>This function iterates through <text>all watches</text> and checks if any of the watched variables have <text>changed</text>. If a watched variable has changed, a corresponding 
+                            <text>listener function</text> is called. The listener function does whatever work it needs to do, for instance changing an HTML text to reflect the new value of 
+                            the watched variable. Thus, the $digest() function is what triggers the data binding to update.
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </body>
