@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="../css/styles/default.css">
         <script src="../css/highlight.pack.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/page-scroll.js"></script>
     </head>
 
     <body>
@@ -25,6 +27,21 @@
                 <li><a class="active" href="../index.html">Home</a></li>
             </ul>
         </nav>
+
+        <div id="guide"><h><b>Topics Covered in this Page</b></h>
+            <ol>
+                <li><a href="#view-controller">View and Controller</a></li>
+                <li><a href="#pro-and-exp">Properties and Expressions</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#dataBinding">Data Binding</a></li>
+                <li><a href="#directives">Directives</a></li>
+                <li><a href="#modules">Modules</a></li>
+                <li><a href="#controllers">Controllers</a></li>
+                <li><a href="#scope">Scope</a></li>
+                <li><a href="#broadcast">Broadcasting and Emitting Events</a></li>
+                <li><a href="#server-side">Communicating with Server</a></li>
+            </ol>
+        </div>
 
         <!-- Main body of the front page -->
         <div class="blog-content">
@@ -281,6 +298,23 @@
                     </ul>
                 </li>
             </ul>
+
+            <h id="dataBinding">Data Binding</h>
+            <ul>
+                <li>Dirty Checking: When Angular thinks that the value could change, it will call <text>$digest()</text> on the value to check whether the value is “dirty.” 
+                    Hence, when the Angular runtime is running, it will look for potential changes on the value.
+                </li>
+                <li>Using ng-model
+                    <ul>
+                        <li>
+                            &lt;input ng-model="person.name" type="text" placeholder="Your name"&gt;
+                            &lt;h1&gt;Hello {{ person.name }}&lt;/h1&gt;
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
 
             <h id="directives">Directives</h>
             <ul>
@@ -621,6 +655,21 @@
                         </li>
                     </ul>
                 </li>
+                <li>Module Configuration
+                    <ul>
+                        <li><pre><code class="javascript">
+                            angular.module('myApp', []) 
+                                .config(function($provide) { });
+                        </code></pre></li>
+                        <li>Angular executes blocks of configuration during the provider registration and configuration phases in the bootstrapping of the module. This phase is the only part of the Angular flow that may be modified before the app starts up.</li>
+                    </ul>
+                </li>
+                <li>Run Blocks
+                    <ul>
+                        <li>run blocks are executed after the injector is created and are the first methods that are executed in any Angular app.</li>
+                        <li></li>
+                    </ul>
+                </li>
             </ul>
 
             <h id="controllers">Controllers</h>
@@ -771,7 +820,7 @@
                 </li>
             </ul>
 
-            <h id="broadcast">broadcasting and Emitting Events</h>
+            <h id="broadcast">Broadcasting and Emitting Events</h>
             <ul>
                 <li>AngularJS supports two types of event <text>propagation</text>:
                     <ul>
@@ -801,6 +850,8 @@
                     </ul>
                 </li>
             </ul>
+
+            <h id="server-side">Communicating with Server</h>
         </div>
     </body>
 </html>
